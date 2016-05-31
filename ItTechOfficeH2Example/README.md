@@ -1,4 +1,6 @@
-H2 Example
+# H2 Example
 
-Page: http://www.h2database.com/html/main.html
+Home Page: http://www.h2database.com/html/main.html
+
+## Example List
 
