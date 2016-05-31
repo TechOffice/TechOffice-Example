@@ -1,4 +1,4 @@
-# Junit Example 
+# JUnit Example 
 
 Home Page: http://junit.org/junit4/
 
