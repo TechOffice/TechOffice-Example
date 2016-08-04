@@ -2,7 +2,7 @@
 
 Spring home page: https://spring.io/
 
-Spring is inversion of control container framework for Java. 
+Spring is inversion of control framework for Java. 
 
 This Example demonstrates the Hello World Example of Spring. 
 
@@ -17,9 +17,9 @@ This Example demonstrates the Hello World Example of Spring.
 * SimpleSpringApplJavaBasedConfig
  * Simple Spring Example Using Java Based Configuration
 * SimpleSpringApplWithAnnotation
- * Simple Spring Example With Annotation
+ * Simple Spring Example With Annotation Configuration
 * SimpleSpringApplWithComponentScan
- * Simple Spring Example WIth Auto-Scan
+ * Simple Spring Example With Auto-Scan Configuration
 
 ## Spring 
 
