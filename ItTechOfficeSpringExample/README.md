@@ -12,13 +12,13 @@ This Example demonstrates the Hello World Example of Spring.
 
 ## Example List
 
-* SimpleSpringAppl
+* **SimpleSpringAppl**
  * Simple Spring Example Using XML Configuration
-* SimpleSpringApplJavaBasedConfig
+* **SimpleSpringApplJavaBasedConfig**
  * Simple Spring Example Using Java Based Configuration
-* SimpleSpringApplWithAnnotation
+* **SimpleSpringApplWithAnnotation**
  * Simple Spring Example With Annotation Configuration
-* SimpleSpringApplWithComponentScan
+* **SimpleSpringApplWithComponentScan**
  * Simple Spring Example With Auto-Scan Configuration
 
 ## Spring 
