@@ -23,11 +23,13 @@ This Example demonstrates the Hello World Example of Spring.
 
 ## Spring 
 
-In Spring, the object are managed by the SPring IoC container represented by ApplicationContext.
+In Spring, the object are managed by the SPring IoC container represented by **ApplicationContext** (Interface). 
 
 **ClassPathXmlApplicationContext**
 
 ClassPathXmlApplicationContext is an implementation of ApplicationContext for standalone XML application context. 
+
+
 
 ### Annotation Configuration
 
