@@ -29,13 +29,15 @@ In Spring, the object are managed by the SPring IoC container represented by App
 
 ClassPathXmlApplicationContext is an implementation of ApplicationContext for standalone XML application context. 
 
+### Annotation Configuration
+
 **@Autowired**
 
 Autowired annotation provides the same feature of property in configuration.
 
 **@Component**
 
-Component annotation indicates that the class is Spring bean. (@Component is introduced in Spring 2.5)
+Component annotation indicates that the class is Spring bean. (@Since Spring 2.5)
 
 **@Configuration**
 
@@ -43,4 +45,4 @@ Configuration indicates that the class is a source of bean definition of Spring 
 
 **@Bean**
 
-Bean annotation explicity declare a sigle bean. It is noted that the declaration is not in Class Level.(@Bean is introduced in Spring 3.0)
+Bean annotation explicity declare a sigle bean. Noted that the declaration is not in Class Level. (@Since Spring 3.0)
