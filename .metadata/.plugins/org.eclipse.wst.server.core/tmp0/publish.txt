@@ -1,0 +1,4 @@
+#Tomcat publish data
+#Fri Aug 12 02:28:44 HKT 2016
+org.eclipse.jst.jee.server\:SpringSecurityWebExample=/Users/imben1109/Documents/apache-tomcat-7.0.69/wtpwebapps/SpringSecurityWebExample
+org.eclipse.jst.jee.server\:/binary\:/Users/imben1109/.m2/repository/org/springframework/spring-web/4.3.2.RELEASE/spring-web-4.3.2.RELEASE.jar=/Users/imben1109/Documents/apache-tomcat-7.0.69/wtpwebapps/SpringSecurityWebExample/WEB-INF/lib/spring-web-4.3.2.RELEASE.jar
