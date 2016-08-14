@@ -1,7 +1,8 @@
 /**
  * It chains Component and Class
- *  selector: It specifies a simple CSS selector for a host HTML element 
- *  template: component's Component template. 
+ *  selector: It specifies a simple selector for the HTML Element (Tag name) 
+ *  template: The template for the Selector 
+ *  
  */
 (function(app) {
   app.AppComponent =

@@ -1,11 +1,6 @@
-(function(app) {
-  app.AppModule =
-    ng.core.NgModule({
-      imports: [ ng.platformBrowser.BrowserModule ],
-      declarations: [ app.AppComponent ],
-      bootstrap: [ app.AppComponent ]
-    })
-    .Class({
-      constructor: function() {}
-    });
-})(window.app || (window.app = {}));
+// Define modules simpleAngualrExample as module and specify it depend on test module
+
+angular.module('simpleAngualrJsExample', [ 
+    // the test module could be in test folder
+    'test'
+]);
