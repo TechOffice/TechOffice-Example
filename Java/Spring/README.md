@@ -6,7 +6,7 @@
 ## Web
 - SpringMvcExample - Simple Spring MVC Example
 - SpringMvcAnnotationExample - Simple Spring MVC Example Using Annotation Config
-- SpringJsfExample - Spring JSF Integration Example
+- SpringJsfExample - Spring + JSF Integration Example
 
 ## Data Access
 - SpringJdbcExample - JDBC Integration Example
@@ -17,8 +17,8 @@
 
 ## Spring Boot 
 - SpringbootExample - Simple Spring Boot Example
-- SpringbootJspExample - Spring Boot JSP Integration Example
-- SpringBootJsfExample - Spring Boot JSF Integration Example
+- SpringbootJspExample - Spring Boot + JSP Integration Example
+- SpringBootJsfExample - Spring Boot + JSF Integration Example
 
 
 
