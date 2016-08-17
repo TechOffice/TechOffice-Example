@@ -1,0 +1,40 @@
+package com.ittechoffice.example;
+
+import java.util.List;
+
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.stereotype.Component;
+
+import com.ittechoffice.example.model.Student;
+
+@Component
+public class Appl {
+	
+	@Autowired
+	private SessionFactory sessionFactory;
+	
+	@Transactional
+	public void run(){
+		Session session = sessionFactory.getCurrentSession();
+		Transaction tx = session.beginTransaction();
+		Student student = new Student();
+		student.setName("Test 1");
+		int id = (Integer) session.save(student);
+		tx.commit();
+		List<Student> results = session.createQuery("From Student").list();
+		for (Student result: results){
+			System.out.println(result.getName());
+		}
+	}
+	
+	public static void main(String[] args){
+		ApplicationContext context = new ClassPathXmlApplicationContext("bean.xml");
+		Appl appl = context.getBean(Appl.class);
+		appl.run();
+	}
+}

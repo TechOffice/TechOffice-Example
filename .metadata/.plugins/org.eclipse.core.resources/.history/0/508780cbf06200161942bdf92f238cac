@@ -1,0 +1,7 @@
+package com.ittechoffice.example.model;
+
+public class Student {
+	private String name;
+	private String desc;
+	
+}

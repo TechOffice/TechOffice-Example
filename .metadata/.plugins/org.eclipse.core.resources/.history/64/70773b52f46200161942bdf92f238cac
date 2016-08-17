@@ -1,0 +1,13 @@
+package com.ittechoffice.example;
+
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+
+public class Appl {
+	public static void main(String[] args){
+		ApplicationContext context = new ClassPathXmlApplicationContext("beans.xml");
+		TestingSpringBeanA testingSpringBeanA = (TestingSpringBeanA) context.getBean("testingSpringBeanA");
+		System.out.println(testingSpringBeanA.getName());
+
+	}
+}
