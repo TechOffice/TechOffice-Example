@@ -22,6 +22,4 @@ The scope defines how long the bean live.
 * @ApplicationScoped	
 * @CustomScoped	
 
-## Dependency Injection 
-
 JSF is a simple static Dependency Inject Framework. The inject can be through the annotation @ManagedProperty
