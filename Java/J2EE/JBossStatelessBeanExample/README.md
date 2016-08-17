@@ -1,4 +1,4 @@
-# Simple Session Beans Example
+# Simple Stateless Session Beans (EJB) Example
 
 Enterprise Java Bean is a component encapsulating the business logic. There are two types of EJB.
 - Session Bean
