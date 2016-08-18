@@ -17,14 +17,14 @@ Spring provide JdbcTemplate for integation with JDBC. JdbcTemplate support JTA, 
 
 ## Example 
 
-**Spring Config**
+**Spring Config** (beans.xml)
 ```
 	<bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
 		<constructor-arg ref="dataSource"/>
 	</bean>
 ```
 
-**Java Code**
+**Java Code** (TableDao.java)
 ```
   @autowired
   private JdbcTemplate jdbcTemplate;
