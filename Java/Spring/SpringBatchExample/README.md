@@ -1,5 +1,21 @@
 # Spring Batch Example
 
+Console Output
+```
+SimpleItemReader read: 1
+SimpleProcessor input: 1
+SimpleProcessor input: Processed 1
+SimpleItemWriter write: Processed 1
+SimpleItemReader read: 2
+SimpleProcessor input: 2
+SimpleProcessor input: Processed 2
+SimpleItemWriter write: Processed 2
+SimpleItemReader read: 3
+SimpleProcessor input: 3
+SimpleProcessor input: Processed 3
+SimpleItemWriter write: Processed 3
+```
+
 ## Job Config
 
 beans.xml
