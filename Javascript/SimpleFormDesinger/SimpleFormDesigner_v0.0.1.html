@@ -1,0 +1,259 @@
+<html>
+
+	<head>
+		<title>IT Tech Office- Simple Form Designer v0.0.1</title>
+		<style>
+			.noselect {
+				-webkit-touch-callout: none; /* iOS Safari */
+				-webkit-user-select: none;   /* Chrome/Safari/Opera */
+				-khtml-user-select: none;    /* Konqueror */
+				-moz-user-select: none;      /* Firefox */
+				-ms-user-select: none;       /* Internet Explorer/Edge */
+				user-select: none;           /* Non-prefixed version, currently not supported by any browser */
+				cursor:default;
+			}
+			
+			#drawingPanel span {
+				-webkit-touch-callout: none; /* iOS Safari */
+				-webkit-user-select: none;   /* Chrome/Safari/Opera */
+				-khtml-user-select: none;    /* Konqueror */
+				-moz-user-select: none;      /* Firefox */
+				-ms-user-select: none;       /* Internet Explorer/Edge */
+				user-select: none;           /* Non-prefixed version, currently not supported by any browser */
+				cursor:default;
+			}
+
+            #drawingPanel .hbox div {
+                display: inline-block;
+            }           
+
+            #drawingPanel .vbox, #drawingPanel .hbox {
+                margin: 5px;
+                padding: 5px;
+                border: 1px dashed;
+                width: 300px
+            }           
+
+            #drawingPanel span{
+                margin: 5px;
+                padding: 5px;
+            }
+            
+            #drawingPanel table td {
+                padding: 5px;
+                width: 30px;
+                height: 30px;
+                border: 1px dashed;
+            }
+
+		</style>
+        <!-- Jquery Core -->
+		<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+        <!-- Jquery UI -->
+		<script src="https://code.jquery.com/ui/1.12.0/jquery-ui.js"></script>
+		
+        <!-- vkbeautify (for pretty print)-->
+        <script src="http://www.eslinstructor.net/vkbeautify/vkbeautify.js"></script>
+        
+        <script>
+			$( function() {
+				drawingPanel = $("#drawingPanel");
+				// define id sequence for drawPanel
+				drawingPanel.idCount = 0;
+				drawingPanel.getNextId = function(){
+					this.idCount = this.idCount + 1;
+					return "drawingPanelItem" + this.idCount;
+				};
+				
+				$("#generateBtn").click(function(){
+					$("#drawingPanelMeta").val("ID Count: " + drawingPanel.idCount);
+                    var htmlStr = drawingPanel[0].innerHTML;
+                    var xmlStr = htmlStr.replace(/(<img\b(?:[^<>"'\/]+|'[^']*'|"[^"]*")*)>/ig, "$1 />");
+					$("#generatedCodeTextArea").val(vkbeautify.xml(xmlStr));
+				});
+
+                $("#insertTableBtn").click(function(){
+                    var insertTableRowNum = $("#insertTableRowNum").val();
+                    var insertTableColNum = $("#insertTableColNum").val();
+                    if ($.isNumeric(insertTableRowNum) && $.isNumeric(insertTableColNum) && insertTableRowNum>0 && insertTableColNum>0 ){
+                        var id = drawingPanel.getNextId();
+                        var insertStr = "<table " + "id='" + id + "'" +  " >";
+                        for (i=0; i<insertTableRowNum; i++){
+                            insertStr = insertStr + "<tr>";
+                            for (j=0; j<insertTableColNum; j++){
+                                insertStr = insertStr + "<td>";
+                                insertStr = insertStr + "</td>";
+                            }                            
+                            insertStr = insertStr + "</tr>";
+                        }
+                        insertStr = insertStr + "</table>"; 
+                        $(insertStr).appendTo(drawingPanel);
+                        $("#"+id + " tr td").sortable({
+                            connectWith: "#drawingPanel #"+id + " tr td, #drawingPanel, #drawingPanel .hbox, #drawingPanel vbox"
+                        });
+                    } else {
+                        alert("Invalid value of Rows and Colums");
+                    }
+                });
+				
+                // From Designer Element List
+
+				// define vbox is draggable
+				$("#vbox").draggable({revert: true});
+				
+				// define hbox is draggable
+				$("#hbox").draggable({revert: true});
+				
+				// define label is draggable
+				$("#label").draggable({revert: true});
+				
+                // define Input is draggable
+                $("#input").draggable({revert:true});
+
+                // define checkbox is draggable
+                $("#checkbox").draggable({revert:true});
+
+                // define radio is draggable
+                $("#radio").draggable({revert:true});
+
+                // define textarea is draggable
+                $("#textarea").draggable({revert:true});
+
+                // define date is draggable
+                $("#date").draggable({revert:true});
+
+                // define datetime is draggable
+                $("#datetime").draggable({revert:true});
+
+				// define drawingPanel is sortable
+				drawingPanel.sortable({
+                    connectWith: "#drawingPanel .hbox, #drawingPanel .vbox, #drawingPanel td"
+                });
+                
+				// define drawingPanel is droppable
+				drawingPanel.droppable({
+					accept: "#label, #vbox, #hbox, #input, #checkbox, #radio, #textarea, #date, #datetime",
+					drop: function(event, ui){
+						var appendStr;
+                        if (ui.draggable[0].id == 'vbox'){
+                            var id = drawingPanel.getNextId();
+							appendStr = "<div id='" + id + "' class='vbox' >";
+                            // appendStr = appendStr + "&nbsp;";
+                            appendStr = appendStr + "<div>div</div><div>div</div>";
+                            appendStr = appendStr + "</div>";
+                            $(appendStr).appendTo(drawingPanel);
+                            $("#"+id).sortable({
+                                connectWith: "#drawingPanel .hbox, #drawingPanel .vbox, #drawingPanel"
+                            });
+						}
+						if (ui.draggable[0].id == 'hbox'){
+                            var id = drawingPanel.getNextId();
+							appendStr = "<div id='" + id + "' class='hbox' >";
+                            appendStr = appendStr + "<div>div</div><div>div</div>";
+                            // appendStr = appendStr + "&nbsp;";
+                            appendStr = appendStr + "</div>";
+                            $(appendStr).appendTo(drawingPanel);    
+                            $("#"+id).sortable({
+                                connectWith: "#drawingPanel .hbox, #drawingPanel .vbox, #drawingPanel"
+                            });
+						}
+						if (ui.draggable[0].id == 'label'){
+							appendStr = "<div id='" + drawingPanel.getNextId() + "'>";
+                            appendStr = appendStr + "Label";
+                            appendStr = appendStr + "</div>";
+                            $(appendStr).appendTo(drawingPanel);
+						}
+						if (ui.draggable[0].id == 'input'){
+                            var id = drawingPanel.getNextId();
+							appendStr = "<div id='" + id + "' >";
+                            appendStr = appendStr + "<input></input>";
+                            appendStr = appendStr + "</div>";
+                            $(appendStr).appendTo(drawingPanel);
+						}
+                        if (ui.draggable[0].id == 'checkbox'){
+                            var id = drawingPanel.getNextId();
+							appendStr = "<div id='" + id + "' >";
+                            appendStr = appendStr + "<input type='checkbox'/>";
+                            appendStr = appendStr + "</div>";
+                            $(appendStr).appendTo(drawingPanel);
+						}
+                        if (ui.draggable[0].id == 'radio'){
+                            var id = drawingPanel.getNextId();
+							appendStr = "<div id='" + id + "' >";
+                            appendStr = appendStr + "<input type='radio'/>";
+                            appendStr = appendStr + "</div>";
+                            $(appendStr).appendTo(drawingPanel);
+						}
+                        if (ui.draggable[0].id == 'textarea'){
+                            var id = drawingPanel.getNextId();
+							appendStr = "<div id='" + id + "' >";
+                            appendStr = appendStr + "<textarea></textarea>";
+                            appendStr = appendStr + "</div>";
+                            $(appendStr).appendTo(drawingPanel);
+						}
+                        if (ui.draggable[0].id == 'date'){
+                            var id = drawingPanel.getNextId();
+							appendStr = "<div id='" + id + "' >";
+                            appendStr = appendStr + "<input value='date'/>";
+                            appendStr = appendStr + "</div>";
+                            $(appendStr).appendTo(drawingPanel);
+						}
+                        if (ui.draggable[0].id == 'datetime'){
+                            var id = drawingPanel.getNextId();
+							appendStr = "<div id='" + id + "' >";
+                            appendStr = appendStr + "<input value='datetime'/>";
+                            appendStr = appendStr + "</div>";
+                            $(appendStr).appendTo(drawingPanel);
+						}
+					}
+				});
+			});
+		</script>
+	</head>
+	<body>
+		<h1>jQuery UI - Simple Form Designer v0.0.1</h1>
+		<table border="1">
+            <tr>
+                <td colspan="3">
+                    Rows: <input id="insertTableRowNum" style="width: 30px" value="2"/>
+                    Cols: <input id="insertTableColNum" style="width: 30px" value="2"/>
+                    <button id="insertTableBtn" type="button">Insert Table</button>
+                </td>
+            </tr>
+			<tr>
+				<td style="vertical-align:top">
+					<div id="elementList">
+						<div id="vbox"  class="noselect">vbox</div>
+						<div id="hbox"  class="noselect">hbox</div>
+						<div id="label" class="noselect">Label</div>
+                        <div id="input" class="noselect">Input</div>
+                        <div id="date" class="noselect">Date</div>
+                        <div id="datetime" class="noselect">DateTime</div>
+                        <div id="checkbox" class="noselect">Checkbox</div>
+                        <div id="radio" class="noselect">Radio</div>
+                        <div id="textarea" class="noselect">Textarea</div>
+					</div>
+				</td>
+				<td>
+                    <div id="drawingPanelContainer">
+                        <div id="drawingPanel" style="width:700px;height:500px;background-color:snow"></div>
+                    </div>
+				</td>
+				<td style="vertical-align:top">
+					<p>Attribute</p>
+				</td>
+			</tr>
+		</table>
+		<div>
+			<div>
+				<button id="generateBtn" type="button">Generate</button>
+			</div>
+			<div>
+				<textarea id="drawingPanelMeta" rows="3" cols="100"></textarea>
+			</div>
+			<div>
+				<textarea id="generatedCodeTextArea" rows="30" cols="100"></textarea>
+			</div>
+		</div>
+	</body>
+</html>

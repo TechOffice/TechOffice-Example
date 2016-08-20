@@ -1,0 +1,217 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+	<head>
+		<title>IT Tech Office- Simple Form Designer v0.0.2</title>
+		<style>
+			#drawingPanel div, #elementList {
+				-webkit-touch-callout: none; /* iOS Safari */
+				-webkit-user-select: none;   /* Chrome/Safari/Opera */
+				-khtml-user-select: none;    /* Konqueror */
+				-moz-user-select: none;      /* Firefox */
+				-ms-user-select: none;       /* Internet Explorer/Edge */
+				user-select: none;           /* Non-prefixed version, currently not supported by any browser */
+				cursor:default;
+                display: block;
+			}
+
+            #drawingPanel{
+                display: block;
+            }
+
+            #drawingPanel td div{
+                display: inline-block;
+            }
+
+            #drawingPanel .hbox div{
+                display: inline-block;
+            }
+
+            #drawingPanel .vbox div{
+                display: block;
+            }
+
+            #drawingPanel div.vbox, #drawingPanel div.hbox {
+                margin: 5px;
+                padding: 5px;
+                border: 1px dashed;
+            }
+            
+            #drawingPanel table td {
+                padding: 5px;
+                border: 1px dashed;
+            }
+
+            #drawingPanel .ui-selecting { 
+                background: #FECA40; 
+            }
+
+            #drawingPanel .ui-selected { 
+                background: #F39814; color: white; 
+            }
+		</style>
+        <!-- Jquery Core -->
+		<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+        <!-- Jquery UI -->
+		<script src="https://code.jquery.com/ui/1.12.0/jquery-ui.js"></script>
+		
+        <!-- vkbeautify (for pretty print)-->
+        <script src="http://www.eslinstructor.net/vkbeautify/vkbeautify.js"></script>
+        
+        <script>
+			$( function() {
+                
+                refresh = function refresh(){
+                    $("#drawingPanel").sortable({
+                        containment: "#drawingPanelContainer",
+                        receive: function(event, ui){
+                            
+                        },
+                        connectWith: "#drawingPanel, #drawingPanel td, #drawingPanel div.vbox, #drawingPanel div.hbox"
+                    });
+                    $("#drawingPanel td").sortable({
+                        containment: "#drawingPanelContainer",
+                        connectWith: "#drawingPanel, #drawingPanel td, #drawingPanel div.vbox, #drawingPanel div.hbox"
+                    });
+                    $("#drawingPanel div.vbox").sortable({
+                        containment: "#drawingPanelContainer",
+                        connectWith: "#drawingPanel, #drawingPanel td, #drawingPanel div.vbox, #drawingPanel div.hbox"
+                    });
+                    $("#drawingPanel div.hbox").sortable({
+                        containment: "#drawingPanelContainer",
+                        connectWith: "drawingPanel, #drawingPanel td, #drawingPanel div.vbox, #drawingPanel div.hbox"
+                    });
+                }
+
+				drawingPanel = $("#drawingPanel");
+				// define id sequence for drawPanel
+				drawingPanel.idCount = 0;
+				drawingPanel.getNextId = function(){
+					this.idCount = this.idCount + 1;
+					return "drawingPanelItem" + this.idCount;
+				};
+                refresh();
+                
+                $("#insertTableBtn").click(function(){
+                    var insertTableRowNum = $("#insertTableRowNum").val();
+                    var insertTableColNum = $("#insertTableColNum").val();
+                    if ($.isNumeric(insertTableRowNum) && $.isNumeric(insertTableColNum) && insertTableRowNum>0 && insertTableColNum>0 ){
+                        var id = drawingPanel.getNextId();
+                        var insertStr = "<table " + "id='" + id + "'" +  " >";
+                        for (i=0; i<insertTableRowNum; i++){
+                            insertStr = insertStr + "<tr>";
+                            for (j=0; j<insertTableColNum; j++){
+                                insertStr = insertStr + "<td>";
+                                insertStr = insertStr + "</td>";
+                            }                            
+                            insertStr = insertStr + "</tr>";
+                        }
+                        insertStr = insertStr + "</table>"; 
+                        $(insertStr).appendTo(drawingPanel);
+                        $("#"+id + " td").sortable({
+                            helper: 'clone',
+                            containment: "#drawingPanelContainer",
+                            connectWith: "#drawingPanel td, #drawingPanel, #drawingPanel div.hbox, #drawingPanel div.vbox"
+                        });
+                        refresh();
+                    } else {
+                        alert("Invalid value of Rows and Colums");
+                    }
+                });
+
+                $("#vbox").draggable({
+                    helper: function(){
+                        var container;
+                        var vbox;
+                        container = $("<div style='width:auto;height:auto'></div>");
+                        vbox = $("<div class='vbox'></div>").sortable({
+                            containment: "#drawingPanelContainer",
+                            connectWith: "#drawingPanel, #drawingPanel td, #drawingPanel .vbox, #drawingPanel .hbox"
+                        });
+                        return container.append(vbox);
+                    },
+                    connectToSortable: "#drawingPanel"
+                });
+
+                $("#hbox").draggable({
+                    helper: function(){
+                        var container;
+                        var hbox;
+                        container = $("<div style='width:auto;height:auto'></div>");
+                        hbox = $("<div class='hbox' ></div>").sortable({
+                            containment: "#drawingPanelContainer",
+                            connectWith: "#drawingPanel, #drawingPanel td, #drawingPanel div.vbox, #drawingPanel div.hbox"
+                        }); 
+                        return container.append(hbox);
+                    },
+                    connectToSortable: "#drawingPanel"
+                });
+
+                $("#label").draggable({
+                    helper: function(){
+                        var label = $("<div>label</div>") 
+                        return label;
+                    },
+                    connectToSortable: "#drawingPanel"
+                });
+
+                $("#input").draggable({
+                    helper: function(){
+                        var input = $("<div><input/></div>");
+                        return input;
+                    },
+                    connectToSortable: "#drawingPanel"
+                });
+                
+			});
+		</script>
+	</head>
+	<body>
+		<h1>jQuery UI - Simple Form Designer v0.0.2</h1>
+		<table border="1">
+            <tr>
+                <td colspan="3">
+                    Rows: <input id="insertTableRowNum" style="width: 30px" value="2"/>
+                    Cols: <input id="insertTableColNum" style="width: 30px" value="2"/>
+                    <button id="insertTableBtn" type="button">Insert Table</button>
+                </td>
+            </tr>
+			<tr>
+				<td style="vertical-align:top">
+					<div id="elementList">
+						<div id="vbox"">vbox</div>
+						<div id="hbox">hbox</div>
+						<div id="label">Label</div>
+                        <div id="input">Input</div>
+                        <div id="date">Date</div>
+                        <div id="datetime">DateTime</div>
+                        <div id="checkbox">Checkbox</div>
+                        <div id="radio">Radio</div>
+                        <div id="textarea">Textarea</div>
+					</div>
+				</td>
+				<td>
+                    <div id="drawingPanelContainer">
+                        <div id="drawingPanel" style="width:700px;height:500px;background-color:snow"></div>
+                    </div>
+				</td>
+				<td style="vertical-align:top">
+					<p>Attribute</p>
+				</td>
+			</tr>
+		</table>
+		<div>
+			<div>
+				<button id="generateBtn" type="button">Generate</button>
+			</div>
+			<div>
+				<textarea id="drawingPanelMeta" rows="3" cols="100"></textarea>
+			</div>
+			<div>
+				<textarea id="generatedCodeTextArea" rows="30" cols="100"></textarea>
+			</div>
+		</div>
+	</body>
+</html>
