@@ -1,0 +1,73 @@
+/* For Selectable */
+#drawingPanel .ui-selecting { 
+    background: #707070 ;            
+}
+
+#drawingPanel .ui-selected { 
+    background: #EEEEEE; color: #000000; 
+}
+
+/* disable the text selection */
+#drawingPanel div, #elementList {
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none;   /* Chrome/Safari/Opera */
+    -khtml-user-select: none;    /* Konqueror */
+    -moz-user-select: none;      /* Firefox */
+    -ms-user-select: none;       /* Internet Explorer/Edge */
+    user-select: none;           /* Non-prefixed version, currently not supported by any browser */
+    cursor:default;
+    display: block;
+}
+
+/* For drawing Panel */
+
+#drawingPanel{
+    display: block;
+}
+
+/* for hbox and vbox*/            
+#drawingPanel .hbox div{
+    display: inline-block;
+}
+
+#drawingPanel .vbox div{
+    display: block;
+}
+
+#drawingPanel div.vbox, #drawingPanel div.hbox {
+    margin: 5px;
+    padding: 5px;
+    border: 1px dashed;
+    width: 80%;
+}
+
+/* for table in drawingPanel */
+#drawingPanel table td {
+    padding: 5px;
+    border: 1px dashed;
+}
+
+#drawingPanel td div{
+    display: inline-block;
+}
+
+/* for controls */
+#drawingPanel .control-container div{
+    display: inline-block;
+}
+
+#drawingPanel .control-content{
+    display: inline-block;
+}
+
+#drawingPanel .control-container {
+    width: 50%
+}
+
+/* handle */
+#drawingPanel .handle {
+    width: 10px;
+    height: 20px;
+    background: gray;
+    display: inline-block;
+}
