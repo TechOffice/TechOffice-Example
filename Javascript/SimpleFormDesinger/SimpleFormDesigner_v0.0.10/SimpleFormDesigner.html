@@ -1,0 +1,101 @@
+<!-- 
+    Simple Form Desinger 
+      Design Form Layout in Form Desinger. It could generate code for various purpose. 
+      1. generate for simple html form
+      Wish List
+      2. generate code for page with JQuery Widget.
+-->
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+	<head>
+		<title>IT Tech Office - Simple Form Designer v0.0.10</title>
+        <!-- Jquery Core -->
+		<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+        <!-- Jquery UI -->
+		<script src="https://code.jquery.com/ui/1.12.0/jquery-ui.js"></script>
+        <!-- vkbeautify (for pretty print)-->
+        <script src="http://www.eslinstructor.net/vkbeautify/vkbeautify.js"></script>
+        <!-- Simple Form Desinger CSS -->
+        <link rel="stylesheet" type="text/css" href="SimpleFormDesinger.css">
+        
+		<!-- Simple Form Desinger-->
+        <script src="SimpleFormDesinger.js"></script>
+        <script src="DrawingPanel.js"></script>
+        <script src="DrawingPanelControlHelper.js"></script>
+        <script src="DrawingPanelGenerateHelper.js"></script>
+        <script src="DrawingPanelControlMetaHelper.js"></script>
+        <script src="DrawingPanelUpdateHelper.js"></script>
+        
+	</head>
+	<body>
+		<h1>IT Tech Office - Simple Form Designer v0.0.10</h1>
+		<table border="1">
+            <tr>
+                <td colspan="3">
+                    Rows: <input id="insertTableRowNum" style="width: 30px" value="2"/>
+                    Cols: <input id="insertTableColNum" style="width: 30px" value="2"/>
+                    <button id="insertTableBtn" type="button">Insert Table</button>
+                </td>
+            </tr>
+			<tr>
+				<td style="vertical-align:top">
+					<div id="elementList">
+						<div id="vbox">vbox</div>
+						<div id="hbox">hbox</div>
+						<div id="label">Label</div>
+                        <div id="input">Input</div>
+                        <div id="date">Date</div>
+                        <div id="datetime">DateTime</div>
+                        <div id="checkbox">Checkbox</div>
+                        <div id="radio">Radio</div>
+                        <div id="textarea">Textarea</div>
+					</div>
+				</td>
+				<td>
+                    <div id="drawingPanelContainer">
+                        <div id="drawingPanel" style="width:700px;height:500px;background-color:snow"></div>
+                    </div>
+				</td>
+				<td style="vertical-align:top">
+					<div id="controlAttrContainer">
+                        <table>
+                            <tr>
+                                <td colspan="2"><b>Attribute</b></td>
+                            </tr>
+                            <tr>
+                                <td><div id="controlIdLabel">ID:</td>
+                                <td><input id="controlId"/></td>
+                            </tr>
+                            <tr>
+                                <td><div id="controlTypeLabel">Type:</div></td>
+                                <td><input id="controlType"/></td>
+                            </tr>
+                            <tr>
+                                <td><div id="controlValueLabel">Value:</div></td>
+                                <td><input id="controlValue"/></td>
+                            </tr>
+                            <tr>
+                                <td colspan="2"><button id="updateDrawingBtn" type="button">Update</button></td>
+                            </tr>
+                        </table>
+					</div>
+				</td>
+			</tr>
+		</table>
+		<div>
+			<div>
+				<button id="generateBtn" type="button">Generate</button>
+			</div>
+			<div>
+				<textarea id="drawingPanelMeta" rows="3" cols="100"></textarea>
+			</div>
+			<div>
+				<textarea id="generatedCodeTextArea" rows="30" cols="100"></textarea>
+			</div>
+		</div>
+	</body>
+</html>
