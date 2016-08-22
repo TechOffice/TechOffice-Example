@@ -21,6 +21,10 @@
 				user-select: none;           /* Non-prefixed version, currently not supported by any browser */
 				cursor:default;
 			}
+			
+			.hbox div {
+				float:left 
+			}
 		</style>
 		<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 		<script src="https://code.jquery.com/ui/1.12.0/jquery-ui.js"></script>
@@ -63,7 +67,7 @@
 							appendStr = "<div id='" + drawingPanel.getNextId() + "'>vbox<div>";
 						}
 						if (ui.draggable[0].id == 'hbox'){
-							appendStr = "<div id='" + drawingPanel.getNextId() + "' style='float:left;'><div>div1</div><div>div2</div><div>";
+							appendStr = "<div id='" + drawingPanel.getNextId() + "' class='hbox'><div>div1</div><div>div2</div><div>";
 						}
 						$(appendStr).appendTo(drawingPanel);
 					}

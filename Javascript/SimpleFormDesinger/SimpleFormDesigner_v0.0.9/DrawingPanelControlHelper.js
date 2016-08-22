@@ -14,6 +14,7 @@ $(function(){
 
     ContainterConstant = {
         CONTAINER: "control-container",
+		DRAG: "control-container-drag",
         CONTENT: "control-content",
         HANDLE: "handle",
         LABEL: "control-type-label",
@@ -25,9 +26,11 @@ $(function(){
 
     containerHelper = {};
     containerHelper.getContainer = function(type){
-        var containerHtml = "<div style='width:50%; height:auto'></div>";
+		// The width of container is just for display when dragging.
+        var containerHtml = "<div style='width: 100px'></div>";
         var container = $(containerHtml);
         container.addClass(ContainterConstant.CONTAINER);
+		container.addClass(ContainterConstant.DRAG);
         container.attr("id", drawingPanel.getNextId());
         if (type == 'label'){
             container.addClass(ContainterConstant.LABEL);
@@ -50,7 +53,7 @@ $(function(){
         var container = this.getContainer(type);
         var handle = $("<div></div>");
         handle.addClass(ContainterConstant.HANDLE);
-        var content = $("<div style='width:80%'></div>");
+        var content = $("<div></div>");
         content.addClass(ContainterConstant.CONTENT);
         content.append(control);
         container.append(handle);

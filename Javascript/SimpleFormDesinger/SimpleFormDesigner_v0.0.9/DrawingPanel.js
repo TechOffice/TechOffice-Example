@@ -20,6 +20,11 @@ $( function() {
     };
 
     drawingPanel.sortable({
+		receive: function(event, ui){
+			var drag = $(this).find(".control-container-drag");
+			drag.css({'width':'70%', 'height':'auto'});
+			drag.removeClass("control-container-drag");
+		},
         containment: "#drawingPanelContainer",
         handle: ".handle",
         connectWith: "#drawingPanel, #drawingPanel td, #drawingPanel div.vbox, #drawingPanel div.hbox"

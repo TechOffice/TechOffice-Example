@@ -38,7 +38,7 @@
     margin: 5px;
     padding: 5px;
     border: 1px dashed;
-    width: 80%;
+    width: 100%;
 }
 
 /* for table in drawingPanel */
@@ -58,10 +58,7 @@
 
 #drawingPanel .control-content{
     display: inline-block;
-}
-
-#drawingPanel .control-container {
-    width: 50%
+	width: 90%;
 }
 
 /* handle */
