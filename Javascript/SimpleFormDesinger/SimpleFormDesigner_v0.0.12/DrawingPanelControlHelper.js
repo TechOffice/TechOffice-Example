@@ -17,32 +17,32 @@ $(function(){
 		// The width of container is just for display when dragging.
         var containerHtml = "<div style='width: 100px'></div>";
         var container = $(containerHtml);
-        container.addClass(ContainterConstant.CONTAINER);
-		container.addClass(ContainterConstant.DRAG);
+        container.addClass(ContainerConstant.CONTAINER);
+		container.addClass(ContainerConstant.DRAG);
         container.attr("id", drawingPanel.getNextId());
         if (type == 'label'){
-            container.addClass(ContainterConstant.LABEL);
+            container.addClass(ContainerConstant.LABEL);
         }
         if (type == 'input'){
-            container.addClass(ContainterConstant.INPUT);
+            container.addClass(ContainerConstant.INPUT);
         }
         if (type == 'table'){
-            container.addClass(ContainterConstant.TABLE);
+            container.addClass(ContainerConstant.TABLE);
         }
         if (type == 'vbox'){
-            container.addClass(ContainterConstant.VBOX);
+            container.addClass(ContainerConstant.VBOX);
         }
         if (type == 'hbox'){
-            container.addClass(ContainterConstant.HBOX);
+            container.addClass(ContainerConstant.HBOX);
         }
         return container;
     };
     containerHelper.getControl = function(type, control){
         var container = this.getContainer(type);
         var handle = $("<div></div>");
-        handle.addClass(ContainterConstant.HANDLE);
+        handle.addClass(ContainerConstant.HANDLE);
         var content = $("<div></div>");
-        content.addClass(ContainterConstant.CONTENT);
+        content.addClass(ContainerConstant.CONTENT);
         content.append(control);
         container.append(handle);
         container.append(content);
@@ -56,7 +56,8 @@ $(function(){
         if ($.isNumeric(insertTableRowNum) && $.isNumeric(insertTableColNum) && insertTableRowNum>0 && insertTableColNum>0 ){
 			var table = $("<table></table>");
             for (i=0; i<insertTableRowNum; i++){
-				var row = table.append($("<tr></tr"));
+				var row = $("<tr></tr");
+				table.append(row);
                 for (j=0; j<insertTableColNum; j++){
 					var col= $("<td></td>");
 					col.sortable({
@@ -102,6 +103,7 @@ $(function(){
         connectToSortable: "#drawingPanel"
     });
 
+	// Label
     $("#label").draggable({
         helper: function(){
             var label = $("<div>label</div>")
@@ -110,11 +112,13 @@ $(function(){
         },
         connectToSortable: "#drawingPanel"
     });
-
+	
+	// Input
     $("#input").draggable({
         helper: function(){
-            var input = $("<div class='input'><input/></div>");
-            return input;
+            var input = $("<input style='width:100px, height: 20px'/>");
+			var control = containerHelper.getControl('input', input); 
+            return control;
         },
         connectToSortable: "#drawingPanel"
     });
