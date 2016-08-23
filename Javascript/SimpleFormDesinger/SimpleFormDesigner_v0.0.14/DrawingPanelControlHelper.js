@@ -75,7 +75,12 @@ $(function(){
                 for (j=0; j<insertTableColNum; j++){
 					var col= $("<td></td>");
 					col.sortable({
-						helper: 'clone',
+						helper: function(event, ui){
+							var drag =  $("<div style='background-color: blue; width:10px; height;10px'><div>");
+							return drag;
+						},
+						placeholder: "ui-state-highlight",
+						forcePlaceholderSize: true ,
                         handle: ".handle",
 						containment: "#drawingPanelContainer",
 						connectWith: "#drawingPanel td, #drawingPanel, #drawingPanel div.hbox, #drawingPanel div.vbox"
@@ -101,6 +106,12 @@ $(function(){
         helper: function(){
             var vbox;
             vbox = $("<div class='vbox'></div>").sortable({
+				helper: function(event, ui){
+					var drag =  $("<div style='background-color: blue; width:10px; height;10px'><div>");
+					return drag;
+				},
+				placeholder: "ui-state-highlight",
+				forcePlaceholderSize: true ,
                 handle: ".handle",
                 containment: "#drawingPanelContainer",
                 connectWith: "#drawingPanel, #drawingPanel td, #drawingPanel .vbox, #drawingPanel .hbox"
@@ -122,6 +133,12 @@ $(function(){
         helper: function(){
             var hbox;
             hbox = $("<div class='hbox'></div>").sortable({
+				helper: function(event, ui){
+					var drag =  $("<div style='background-color: blue; width:10px; height;10px'><div>");
+					return drag;
+				},
+				placeholder: "ui-state-highlight",
+				forcePlaceholderSize: true ,
                 handle: ".handle",
                 containment: "#drawingPanelContainer",
                 connectWith: "#drawingPanel, #drawingPanel td, #drawingPanel div.vbox, #drawingPanel div.hbox"

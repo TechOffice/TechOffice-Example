@@ -29,10 +29,8 @@ $( function() {
             var drag =  $("<div style='background-color: blue; width:10px; height;10px'><div>");
             return drag;
         },
-        start: function(event, ui){
-            debugger;
-        },
         placeholder: "ui-state-highlight",
+		forcePlaceholderSize: true , 
         containment: "#drawingPanelContainer",
         handle: ".handle",
         connectWith: "#drawingPanel, #drawingPanel td, #drawingPanel div.vbox, #drawingPanel div.hbox"
