@@ -12,6 +12,8 @@ This is a project in **IT Tech Office** providing different examples for J2EE an
 - Persistence
 - Security
 - Messaging 
+ 
+## Prerequisite
 
 JBoss is used for J2EE Container while tomcat is used for servlet container for Web and WebService Example.
 
@@ -20,6 +22,7 @@ JBoss is used for J2EE Container while tomcat is used for servlet container for 
 - Maven 3
 - Tomcat 7
 
+# Example List
 
 ## Web
 - TomcatServlet Example - A Simple Servelt Example
