@@ -22,4 +22,37 @@ The scope defines how long the bean live.
 * @ApplicationScoped	
 * @CustomScoped	
 
-JSF is a simple static Dependency Inject Framework. The inject can be through the annotation @ManagedProperty
+By default, managed bean is request scoped. Request scoped mean the bean lives as long as the HTTP request/response. 
+
+hello.xhtml
+```
+<h:form>
+   <h:inputText value="#{helloBean.name}"></h:inputText>
+   <h:commandButton value="Welcome Me" action="welcome"></h:commandButton>
+</h:form> 
+```
+h:commandButton is exclusively to submit a POST form (not for page navigation). In this example, it would submit the data including helloBean to welcome.xhtml.
+
+welcome.xhtml
+```
+<h:body bgcolor="white">
+	<h2>JSF 2.0 Hello World Example - welcome.xhtml</h2>
+	<h2>Welcome #{helloBean.name}</h2>
+</h:body>
+```
+ 
+ HelloBean.java
+ ```
+ @ManagedBean
+public class HelloBean {
+	private String name;
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+}
+ ```

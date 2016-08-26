@@ -1,10 +1,17 @@
-package com.ittechoffice.example.tomcatjsf.dto;
+package com.ittechoffice.example.managedbean;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 
+/**
+ * HellpBean is an example of Managed Bean. 
+ * Managed Bean is Java Bean Class registered in JSF. Therefore, Managed Bean is manged in JSF framework. 
+ * It can be accessed by JSF Page. 
+ * 
+ * @author Ben_c
+ *
+ */
 @ManagedBean
-@SessionScoped
 public class HelloBean {
 	private String name;
 
