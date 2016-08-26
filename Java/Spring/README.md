@@ -20,5 +20,8 @@
 - SpringbootJspExample - Spring Boot + JSP Integration Example
 - SpringBootJsfExample - Spring Boot + JSF Integration Example
 
+## Spring Batch
+- SpringBatchExample - Simple Spring Batch Example
+
 
 
