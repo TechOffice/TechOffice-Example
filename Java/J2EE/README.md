@@ -7,6 +7,7 @@ This is a project in **IT Tech Office** providing different examples for J2EE an
 
 - Web
 - Web Service
+- Bean Validation
 - Enterprise Beans
 - Context and Dependency Injection
 - Persistence
