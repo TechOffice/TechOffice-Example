@@ -6,7 +6,7 @@
 <html lang="en">
 
 <body>
-	Hello World Message: ${message}
+	Hello World! This is Spring Boot JSP Page!!!
 </body>
 
 </html>
