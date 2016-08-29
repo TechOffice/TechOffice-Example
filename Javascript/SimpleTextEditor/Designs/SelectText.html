@@ -1,0 +1,26 @@
+<html>
+	<head>
+		<style>
+			
+		</style>
+		<script src="../lib/jquery-3.1.0.min.js"></script>
+		<script>
+			$(function(){
+				// Select Event on Input
+				$("#textInput").select(function(){
+					$("#message").html("Selected Text in Input!")
+				});
+				$("#text").blur(function(){
+					$("#textInputmessage").html("Input is unselected/blurred!")
+				})
+
+			});
+		</script>
+	</head>
+	
+	<body>
+		<h1>Select Event on Input</h1>
+		<input id="textInput" value="Testing!"/>
+		<div id="textInputmessage" style="color: red"></div>
+	</body>
+</html>
