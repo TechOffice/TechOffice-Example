@@ -1,5 +1,11 @@
 <html>
     <head>
+		<style>
+			pre{
+				background-color: WhiteSmoke;
+				width: 800px
+			}
+		</style>
         <script>
             document.onreadystatechange = function() {
                 if (document.readyState == 'complete'){
@@ -53,13 +59,14 @@
             <canvas id="canvas" width="1000" height="300">
             </canvas>
         </div>
+		<h1>Canvas</h1>
         <p>
-            Canvas is used to draw graphics on the fly via JavaScript. The 2d object of this would provide method to draw text, line, box, circles and more on it.
+            Canvas is used to <b>draw graphics</b> on the fly via JavaScript. The 2d object of this would provide method to draw text, line, box, circles and more on it.
         </p>
-        <p>
-            This is an example of canvas which allow you use mouse to draw line on it. 
-        </p>
-        <h1>Draw Line</h1>
+        <h1>Draw Line Example</h1>
+		    <p>
+				This is an example of canvas which allow you use mouse to draw line on it. 
+			</p>
         <h2>Main Part of the Script</h2>
 <pre>
 canvas = document.getElementById("canvas");
