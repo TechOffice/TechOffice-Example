@@ -1,5 +1,8 @@
 package com.ittechoffice.example;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import javax.servlet.http.HttpServletRequest;
 
 import org.dom4j.DocumentException;
@@ -21,9 +24,17 @@ public class Dom4jToolController {
 		return "Dom4jTool";
 	}
 	
+	/**
+	 * Parse XML and return JSON value for manipulating
+	 * Spring Boot Web Starter included Jackson. So, the return object could be mapped to JSON format for rendering.
+	 * 
+	 * @param xml
+	 * @return map 
+	 * @throws DocumentException
+	 */
 	@RequestMapping("/parse")
-	@ResponseBody
-	public String parse(@RequestParam(value="xml", required=true) String xml) throws DocumentException{
+	@ResponseBody 
+	public Map<String, Object> parse(@RequestParam(value="xml", required=true) String xml) throws DocumentException{
 		return dom4jToolService.parse(xml);
 	}
 	

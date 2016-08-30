@@ -1,11 +1,11 @@
 package com.ittechoffice.example;
 
-import java.io.ByteArrayInputStream;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.dom4j.Document;
 import org.dom4j.DocumentException;
-import org.dom4j.io.SAXReader;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -15,9 +15,12 @@ public class Dom4jToolService {
 	@Autowired
 	private Dom4jHelper dom4jHelper;
 	
-	public String parse(String xml) throws DocumentException{
+	public Map<String, Object> parse(String xml) throws DocumentException{
+		Map<String, Object> map = new HashMap<String, Object>();
 		Document document = dom4jHelper.parse(xml);
-		return document.asXML();
+		String parsedXml =  document.asXML();
+		map.put("xml", parsedXml);
+		return map;
 	}
 	
 	public List queryByXpath(String xml, String xpath) throws DocumentException{

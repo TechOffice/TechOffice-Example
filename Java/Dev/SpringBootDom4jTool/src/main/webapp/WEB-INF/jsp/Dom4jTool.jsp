@@ -26,7 +26,7 @@
 					url: "/parse",
 					data: {"xml": xml},
 					success: function(response) {
-						$("#parsedXml").val(response)
+						$("#parsedXml").val(response.xml)
 					}
 				});
 			});
