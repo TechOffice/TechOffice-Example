@@ -10,7 +10,7 @@ import org.xml.sax.helpers.DefaultHandler;
 
 public class XMLReaderFactory {
 	
-	public static XMLReader getXmlReader(DefaultHandler handler) throws ParserConfigurationException, SAXException{
+	public static XMLReader createXmlReader(DefaultHandler handler) throws ParserConfigurationException, SAXException{
         SAXParserFactory spf = SAXParserFactory.newInstance();
         spf.setNamespaceAware(true);
         SAXParser saxParser = spf.newSAXParser();

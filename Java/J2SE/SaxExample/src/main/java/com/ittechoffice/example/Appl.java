@@ -15,7 +15,7 @@ import org.xml.sax.XMLReader;
 public class Appl {
 	public static void main(String[] args) throws ParserConfigurationException, SAXException, IOException{
         TagNameSaxHandler handler = new TagNameSaxHandler();
-        XMLReader xmlReader = XMLReaderFactory.getXmlReader(handler);
+        XMLReader xmlReader = XMLReaderFactory.createXmlReader(handler);
         InputStream inputStream = Appl.class.getClassLoader().getResourceAsStream("testing.xml");
         Reader reader = new InputStreamReader(inputStream, "UTF-8");
         InputSource is = new InputSource(reader);
