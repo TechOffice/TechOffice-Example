@@ -1,71 +1,31 @@
-# Spring MVC Example
+# Spring MVC Upload Example
 
 ## Prerequisite
 
 * Tomcat 7
 * Maven 3
 
-## Example List
+## Multipart Support
+By default, Spring does not have multipart handling. In order to enable multipart support, **MultipartResolver** are required to define in Spring and use **Apache Commons fileUpload** to do the implementation. 
 
-* A method response text
-* A method with a jsp for html output
-
-## Spring MVC
-
-Spring MVC is a servlet technology. It is a standard request-based web application frameword. It works around DispatcherServlet. 
-
-**Spring MVC Set Up**
-
-**web.xml**
-
+beans.xml
 ```
-<web-app id="WebApp_ID" version="2.4"
-    xmlns="http://java.sun.com/xml/ns/j2ee" 
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee 
-    http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd">
- 
-    <display-name>Spring MVC Application Example</display-name>
+<bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+	<property name="maxUploadSize" value="100000"/>
+</bean>
 
-   <servlet>
-      <servlet-name>HelloWeb</servlet-name>
-      <servlet-class>
-         org.springframework.web.servlet.DispatcherServlet
-      </servlet-class>
-      <load-on-startup>1</load-on-startup>
-   </servlet>
+``` 
 
-   <servlet-mapping>
-      <servlet-name>HelloWeb</servlet-name>
-      <url-pattern>/</url-pattern>
-   </servlet-mapping>
+Also, Apache Commons FileUpload is required to define in Maven POM.xml
 
-</web-app>
-
+pom.xml
+```		
+<dependency>
+	<groupId>commons-fileupload</groupId>
+	<artifactId>commons-fileupload</artifactId>
+	<version>1.3.2</version>
+</dependency>
 ```
 
-**[Servlet Name]-servlet.xml**
-
-```
-<beans xmlns="http://www.springframework.org/schema/beans"
-   xmlns:context="http://www.springframework.org/schema/context"
-   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-   xsi:schemaLocation="
-   http://www.springframework.org/schema/beans     
-   http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
-   http://www.springframework.org/schema/context 
-   http://www.springframework.org/schema/context/spring-context-3.0.xsd">
-
-   <context:component-scan base-package="com.tutorialspoint" />
-
-   <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-      <property name="prefix" value="/WEB-INF/jsp/" />
-      <property name="suffix" value=".jsp" />
-   </bean>
-
-</beans>
-
-
-```
 
 
