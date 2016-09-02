@@ -1,16 +1,18 @@
-# Spring Example
+# Spring Example 
 
+## Prerequisite
+* Maven 3
+* Eclipse Mars.1 Release (4.5.1)
+
+## Dependencies
+* Spring 4.3
+
+## Example
 Spring home page: https://spring.io/
 
 Spring is inversion of control framework for Java. 
 
-This Example demonstrates the Hello World Example of Spring. 
-
-## Prerequisite
-
-* Maven 
-
-## Example List
+This Example demonstrates the Hello World Example of Spring.
 
 * **SimpleSpringAppl**
  * Simple Spring Example Using XML Configuration
