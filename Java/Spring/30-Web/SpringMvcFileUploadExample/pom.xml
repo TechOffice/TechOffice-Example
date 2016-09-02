@@ -10,7 +10,7 @@
 	</properties>
 
 	<dependencies>
-		<!-- Spring dependencies -->
+		<!-- Spring Core -->
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-core</artifactId>
@@ -41,6 +41,22 @@
 			<version>4.3.0.RELEASE</version>
 		</dependency>
 
+		<!-- Spring MVC -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-web</artifactId>
+			<version>4.3.0.RELEASE</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-webmvc</artifactId>
+			<version>4.3.0.RELEASE</version>
+		</dependency>
+		
+		<!-- Jstl -->
+		<!-- By default, Tomcat do not include JSTL Library -->
+		<!-- Add Support to JSP -->
 		<dependency>
 			<groupId>javax.servlet</groupId>
 			<artifactId>jstl</artifactId>
@@ -48,6 +64,8 @@
 		</dependency>
 		
 		<!-- Commons FileUpload -->
+		<!-- Spring does not implement File Upload. By default, Spring support Apache Commons Uploads for implementation -->
+		<!-- Add Support to File Upload -->
 		<dependency>
 			<groupId>commons-fileupload</groupId>
 			<artifactId>commons-fileupload</artifactId>
