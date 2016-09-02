@@ -1,11 +1,13 @@
 # Spring MVC Example
 
 ## Prerequisite
-
 * Tomcat 7
 * Maven 3
 
-## Example List
+## Dependencies
+* Spring 4.3
+
+## Example
 
 * A method response text
 * A method with a jsp for html output

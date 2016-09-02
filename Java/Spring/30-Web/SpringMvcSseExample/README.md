@@ -4,8 +4,13 @@
 
 * Tomcat 7
 * Maven 3
+
+## Dependencies
 * Spring 4.3
 
+## Example
+
+## Spring SseEmitter (Server Sent Event)
 web.xml
 ```
 <web-app xmlns="http://java.sun.com/xml/ns/javaee"
