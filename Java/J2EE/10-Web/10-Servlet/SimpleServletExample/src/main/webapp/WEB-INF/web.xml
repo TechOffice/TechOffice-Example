@@ -17,6 +17,6 @@
   
   <servlet-mapping>
   	<servlet-name>ItTechOfficeTestServlet</servlet-name>
-  	<url-pattern>/ItTechOfficeTestServlet</url-pattern>
+  	<url-pattern>/</url-pattern>
   </servlet-mapping>
 </web-app>

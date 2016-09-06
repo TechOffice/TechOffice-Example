@@ -13,6 +13,8 @@ import javax.faces.bean.SessionScoped;
  */
 @ManagedBean
 public class HelloBean {
+	private String hello = "Hello123!!";
+	
 	private String name;
 
 	public String getName() {
@@ -21,6 +23,10 @@ public class HelloBean {
 
 	public void setName(String name) {
 		this.name = name;
+	}
+	
+	public String getHello(){
+		return hello;
 	}
 	
 	
