@@ -4,6 +4,11 @@
 <html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=BIG5">
+	<style>
+		.meta{
+			display: none;
+		}
+	</style>
     <script src="webjars/jquery/3.1.0/jquery.min.js"></script>
     <script>
     	$(function(){
@@ -20,7 +25,10 @@
 	    					var li = $("<li></li>");
 	    					var fileDiv = $("<div class='fileCell'></div>");
 	    					var filenameSpan = $("<span class='filename'></span>");
-	    					var fileMetaSpan = $("<span></span>");
+	    					var fileMetaSpan = $("<span class='meta'></span>");
+	    					var fileMetaTypeSpan = $("<span class='meta_type'></span>");
+	    					fileMetaTypeSpan.html(file.type);
+	    					fileMetaSpan.append(fileMetaTypeSpan);
 	    					filenameSpan.html(file.name);
 	    					fileDiv.append(filenameSpan);
 	    					fileDiv.append(fileMetaSpan);
@@ -31,9 +39,18 @@
 	    	    		$(".fileCell").click(function(event){
 	    	    			var clicked = event.currentTarget;
 	    	    			var selectedFile = clicked.getElementsByClassName("filename")[0].innerHTML;
-	    	    			var path = $("#path");
-	    	    			path.val(path.val() + "/" + selectedFile);
-	    	    			goToPath();
+	    	    			var selectedFileType = clicked.getElementsByClassName("meta_type")[0].innerHTML;
+	    	    			if (selectedFileType == 'FOLDER'){
+	    	    				var path = $("#path");
+	    	    				var newPath = path.val();
+	    	    				if (newPath != "/"){
+	    	    					var newPath = newPath + "/" + selectedFile;	
+	    	    				}else {
+	    	    					var newPath = newPath + selectedFile;
+	    	    				}
+		    	    			path.val(newPath);
+		    	    			goToPath();	
+	    	    			}
 	    	    		});
 	    			}
 	    		});
@@ -42,6 +59,14 @@
 			$("#goBtn").click(function(){
 				goToPath();	
 			});
+			
+			$('#path').keyup(function(e){
+			    if(e.keyCode == 13){
+			    	goToPath();	    
+			    }
+			});
+
+
 			
 			// default
 			goToPath();

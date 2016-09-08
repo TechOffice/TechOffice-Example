@@ -8,7 +8,6 @@ import org.springframework.stereotype.Service;
 
 import com.ittechoffice.example.example.FeNotFolderException;
 import com.ittechoffice.example.model.FeFile;
-import com.ittechoffice.example.model.FeFile.FeFileType;
 
 @Service
 public class FileExploerService {
@@ -19,16 +18,17 @@ public class FileExploerService {
 		if (!folder.isDirectory()){
 			throw new FeNotFolderException();
 		}
-		String[] fileNames = folder.list();
-		for (String fileName: fileNames){
-			File file = new File("parent/" + fileName);
+		
+		File[] files = folder.listFiles();
+		for (int i=0; i<files.length; i++){
+			File file = files[i];
 			FeFile feFile = new FeFile();
 			feFile.setParent(parent);
-			feFile.setName(fileName);
+			feFile.setName(file.getName());
 			if (file.isFile()){
-				feFile.setType(FeFileType.file);
+				feFile.setType(FeFile.FeFileType.FILE);
 			}else if (file.isDirectory()){
-				feFile.setType(FeFileType.folder);
+				feFile.setType(FeFile.FeFileType.FOLDER);
 			}
 			feFileList.add(feFile);
 		}

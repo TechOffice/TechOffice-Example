@@ -34,7 +34,7 @@ public class FeFile {
 	}
 
 	public enum FeFileType {
-		file("FILE"), folder("FOLDER");
+		FILE("FILE"), FOLDER("FOLDER");
 		private String name;
 		FeFileType(String name){
 			this.name = name;
