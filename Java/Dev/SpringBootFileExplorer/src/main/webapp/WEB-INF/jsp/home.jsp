@@ -66,8 +66,6 @@
 			    }
 			});
 
-
-			
 			// default
 			goToPath();
     	});
