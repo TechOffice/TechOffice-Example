@@ -1,10 +1,10 @@
 # Simple AngularJs Example
 
 ## Eclipse List
-* HelloWorld.html
-* SimpleControllerExample.html
-* SimpleComponentExample.html
-* app/simpleAngularJsExample.html
+* HelloWorld.html - Hello World Example
+* SimpleControllerExample.html - Controller Example 
+* SimpleComponentExample.html - Component Example
+* app/simpleAngularJsExample.html - Separated Folder and File Organization Example
 
 ## HelloWorld.html
 Hello World Example of AngularJs
