@@ -1,10 +1,11 @@
-
+# Grunt Example
 It is a Javascript Task Runner for repetitive tasks such as
 * minification
 * compilation
 * unit testing
 
-##Grunt Command Line
+## Grunt Uglify
+###Grunt Command Line
 It requires you to install command line utility in order to execute the specied task.
 
 Use NPM to install Grunt Command line
@@ -56,8 +57,10 @@ grunt
 
 ##Example 
 In this example, there are two javascript files, src1.js and src2.js. This example would be minify these two files into a single file.
+
+Folder Organization
 ```
-|-scr
-|--src1.js
-|--src2.js
+|---src
+|------src1.js
+|------src2.js
 ```
