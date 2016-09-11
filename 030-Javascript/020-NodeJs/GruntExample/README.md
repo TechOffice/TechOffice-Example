@@ -21,7 +21,7 @@ It requires to specify the Grunt Modules in the package.json. Beside, this examp
 ```
 
 The configuration of Grunt is in gruntFile.js.
- 
+
 gruntFile.js
 ```
 module.exports = function(grunt) {
@@ -56,7 +56,8 @@ grunt
 
 ##Example 
 In this example, there are two javascript files, src1.js and src2.js. This example would be minify these two files into a single file.
-
+```
 |-scr
 |--src1.js
 |--src2.js
+```
