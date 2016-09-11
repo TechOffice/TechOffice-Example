@@ -1,5 +1,9 @@
 # Simple AngularJs Example
 
+## Dependencies
+* CDN provider of AngualrJs: https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js
+* AngularJs: 1.5.8
+
 ## Eclipse List
 * HelloWorld.html - Hello World Example
 * SimpleControllerExample.html - Controller Example 
