@@ -18,10 +18,11 @@ It requires to specify the Grunt Modules in the package.json. Beside, this examp
     "grunt": "~0.4.5",,
     "grunt-contrib-uglify": "~0.5.0"
   }
+```
 
-The configuration of Grunt is in gruntFile.js. 
+The configuration of Grunt is in gruntFile.js.
+ 
 gruntFile.js
-
 ```
 module.exports = function(grunt) {
 
