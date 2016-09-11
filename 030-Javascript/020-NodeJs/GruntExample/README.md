@@ -61,6 +61,6 @@ In this example, there are two javascript files, src1.js and src2.js. This examp
 Folder Organization
 ```
 |---src
-|------src1.js
-|------src2.js
+    |---src1.js
+    |---src2.js
 ```
