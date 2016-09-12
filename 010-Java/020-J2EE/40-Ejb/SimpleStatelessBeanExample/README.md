@@ -15,7 +15,7 @@ Session Bean can be accessed by
 
 This example show a local stateless bean called by a web client.
 
-## Enterprise Application
+## Example
 In an enterprise application, there could be different module
 - Web Module
 - Ejb Module
