@@ -1,0 +1,52 @@
+<html lang="en">
+	<head>
+		<title>jQuery UI - Simple Draggable Example</title>
+		<style>
+			#left, #right{
+				display: inline-block;
+				border: 1px solid;
+				width: 600px;
+				height: 500px;
+				vertical-align: middle;
+			}
+			.red{
+				background-color: red;
+			}
+			#left div, #right div {
+				height: 25px
+			}
+		</style>
+		<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+		<script src="Designs/DiffLibTest/output/diff.js"></script>
+		<script>
+			$( function() {
+				for (var i=3; i<diff.length; i++){
+					var line = diff[i];
+					if (line.startsWith(" ")){
+						var lineDiv = $("<div></div>");
+						lineDiv.html(line.substring(1));
+						$("#left").append(lineDiv);
+						$("#right").append(lineDiv.clone());
+					}
+					if (line.startsWith("-")){
+						var lineDiv = $("<div class='red'></div>");
+						lineDiv.html(line.substring(1));
+						$("#left").append(lineDiv);
+					}
+					if (line.startsWith("+")){
+						var lineDiv = $("<div class='red'></div>");
+						lineDiv.html(line.substring(1));
+						$("#right").append(lineDiv);
+					}
+				}
+			});
+		</script>
+	</head>
+	<body>
+		<h1>Simple Diff Viewer</h1>
+		<div>
+			<div id="left"></div>
+			<div id="right"></div>
+		</div>		
+	</body>
+</html>
