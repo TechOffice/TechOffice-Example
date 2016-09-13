@@ -1,4 +1,4 @@
-function simpleViewDiffArrConvertor(diff){
+function diffArrConvertor(diff){
 	var diffArr = [];
 	for (var i=3; i<diff.length; i++){
 		var line = diff[i];
