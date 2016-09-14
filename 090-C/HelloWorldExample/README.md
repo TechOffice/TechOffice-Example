@@ -1,3 +1,9 @@
+# C Hello World Example
+
+## Dependencies
+* GCC
+
+## Example
 
 HelloWorld.c 
 ```
