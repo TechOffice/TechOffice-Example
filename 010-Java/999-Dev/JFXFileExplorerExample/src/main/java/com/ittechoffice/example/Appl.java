@@ -3,9 +3,12 @@ package com.ittechoffice.example;
 import com.ittechoffice.example.control.FileExplorer;
 
 import javafx.application.Application;
+import javafx.event.EventHandler;
 import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
@@ -20,9 +23,18 @@ public class Appl extends Application{
 		 Label label = new Label("Hello World JavaFX");
 		 root.getChildren().add(label);
 		 
-		 FileExplorer fileExplorer = new FileExplorer("D://");
+		 final FileExplorer fileExplorer = new FileExplorer("D://");
 		 root.getChildren().add(fileExplorer);
-
+		 scene.addEventHandler(KeyEvent.KEY_PRESSED, new EventHandler<KeyEvent>(){
+			public void handle(KeyEvent event) {
+				if (event.getCode() == KeyCode.F2){
+					fileExplorer.renameFile();
+				}
+				if(event.getCode() == KeyCode.DOWN){
+					fileExplorer.nextFile();
+				}
+			}
+		 });
 		 primaryStage.setTitle("Hellow World JavaFX");
 		 primaryStage.setScene(scene);
 		 primaryStage.show();		
