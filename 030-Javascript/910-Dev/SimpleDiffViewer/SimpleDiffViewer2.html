@@ -12,24 +12,32 @@
 			.diff{
 				background-color: green;
 			}
-
+			textarea {
+				width: 600px;
+				height: 150px;
+			}
 		</style>
 		<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-		<script src="diff.js"></script>
-		<script src="src/ViewerConvertor.js"></script>
-		<script src="src/ViewerRender.js"></script>
+		<script src="src/diffArrConvertor.js"></script>
+		<script src="src/simpleViewerRender.js"></script>
 		<script>
 			$( function() {
-				var diffArr = viewerConvertor.convert(diff);
-				viewerRender.render(diffArr, "left", "right")
+
 			});
 		</script>
 	</head>
 	<body>
 		<h1>Simple Diff Viewer</h1>
-		<div>
-			<div id="left"></div>
-			<div id="right"></div>
-		</div>		
+		<table>
+			<tr>
+				<td><div id="left"></div></td>
+				<td><div id="right"></div></td>
+			</tr>
+			<tr>
+				<td><textarea id="leftTestArea"></textarea></td>
+				<td><textarea id="rightTestArea"></textarea></td>
+			</tr>
+		</table>
+		<button>diff</button>
 	</body>
 </html>
