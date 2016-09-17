@@ -1,0 +1,37 @@
+<html>
+    <head>
+        <script src="lib/adapter-1.0.2.js"></script>
+    </head>
+
+    <body>
+        <h1>Web RTC Peer Connection Example</h1>
+        <script>
+            servers = null;
+            pc1 = new RTCPeerConnection(servers);
+            pc2 = new RTCPeerConnection(servers);
+
+            // the event handler for Internet Connectivity Establishment Candidata
+            pc1.onicecandidate = function(event){
+                pc2.addIceCandidate(new RTCIceCandidate(event.candidate)).then(function(){console.log("add ice candidate to pc2")});
+            };
+
+            // the event handler for Internet Connectivity Establishment Candidata
+            pc2.onicecandidate = function(event){
+                pc1.addIceCandidate(new RTCIceCandidate(event.candidate)).then(function(){console.log("add ice candidate to pc1")});
+            };
+
+            //
+            pc1.oniceconnectionstatechange = function(event){
+                if (pc1.iceConnectionState === 'connected' || pc1.iceConnectionState === 'completed'){
+
+                }
+            };
+
+            pc2.oniceconnectionstatechange = function(event){
+                if (pc2.iceConnectionState === 'connected' || pc2.iceConnectionState === 'completed'){
+
+                }
+            };
+        </script>
+    </body>
+</html>
