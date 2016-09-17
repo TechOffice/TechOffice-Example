@@ -1,5 +1,5 @@
 # WebRTC Example
-Web Real-Time Communication enable browser to do peer-to-peer data sharing.
+Web Real-Time Communication enable browser to do peer-to-peer data sharing. Different browser has its own implementation. In this example, adapter.js is used in order to insulate web app from spec change and browser difference.
 
 ## API
 * MediaStream 
@@ -10,9 +10,7 @@ Web Real-Time Communication enable browser to do peer-to-peer data sharing.
 Get access to data stream.
 
 ### RTCPeerConnection
-Audio or video calling.
-Different browser has its own implementation.
-adapter.js is a library which help abstracts away browser difference and specification changes.
+Connection between local and remote peer.
 
 ### RTCDataChannel
-Peer-to-Peer Communication of Generic data.
+Network channel for bidirectional peer-to-peer transfer.
