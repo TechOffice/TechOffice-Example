@@ -20,7 +20,9 @@
 		<script src="src/ViewerRender.js"></script>
 		<script>
 			$( function() {
+				// covert diff into a object which could be used to render
 				var diffArr = viewerConvertor.convert(diff);
+				// render
 				viewerRender.render(diffArr, "left", "right")
 			});
 		</script>

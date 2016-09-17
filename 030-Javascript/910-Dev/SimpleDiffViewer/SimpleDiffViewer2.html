@@ -6,7 +6,7 @@
 				display: inline-block;
 				border: 1px solid;
 				width: 600px;
-				height: 500px;
+				height: 300px;
 				vertical-align: middle;
 			}
 			.diff{
@@ -18,11 +18,30 @@
 			}
 		</style>
 		<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-		<script src="src/diffArrConvertor.js"></script>
-		<script src="src/simpleViewerRender.js"></script>
+		<script src="lib/difflib-browser.js"></script>
+		<!-- Simple Diff Viewer Javascript -->
+		<script src="src/ViewerConvertor.js"></script>
+		<script src="src/ViewerRender.js"></script>
 		<script>
 			$( function() {
+				$("#diffBtn").click(function(){
+					var leftContent = $("#leftTestArea").val();
+					var rightContent = $("#rightTestArea").val();
+					var diffLibConfig = { 
+						fromfile: 'Original',
+						tofile: 'Current',
+						lineterm: ''
+					};
+					var leftContentArr;
+					var rightContentArr;
 
+					leftContentArr = leftContent.split("\n");
+					rightContentArr = rightContent.split("\n");
+
+					var diff = difflib.unifiedDiff(leftContentArr, rightContentArr, diffLibConfig);
+					var diffArr = viewerConvertor.convert(diff);
+					viewerRender.render(diffArr, "left", "right")
+				});
 			});
 		</script>
 	</head>
@@ -38,6 +57,6 @@
 				<td><textarea id="rightTestArea"></textarea></td>
 			</tr>
 		</table>
-		<button>diff</button>
+		<button id="diffBtn">Diff</button>
 	</body>
 </html>
