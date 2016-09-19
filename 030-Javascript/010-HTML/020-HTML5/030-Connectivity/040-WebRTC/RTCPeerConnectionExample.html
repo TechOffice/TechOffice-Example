@@ -24,13 +24,14 @@
 			// build connection
 			pc1.onicecandidate = function(event){
 				if (event.candidate){
-					console.log("ice candidate");
+					// Send Ice Candidate to pc2
 					pc2.addIceCandidate(event.candidate);
 				}
 			};
 			
 			pc2.onicecandidate = function(event){
 				if (event.candidate){
+					// Send Ice Candidate to pc1
 					pc1.addIceCandidate(event.candidate);
 				}
 			};
