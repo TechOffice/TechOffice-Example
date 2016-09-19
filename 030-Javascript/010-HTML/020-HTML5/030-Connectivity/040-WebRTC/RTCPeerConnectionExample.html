@@ -9,29 +9,48 @@
             servers = null;
             pc1 = new RTCPeerConnection(servers);
             pc2 = new RTCPeerConnection(servers);
+			
+			// send channel
+			sendChannel = pc1.createDataChannel('sendDataChannel', null)
+			
+			// receive channel
+			pc2.ondatachannel = function(event){
+				receiveChannel = event.channel;
+				receiveChannel.onmessage = function(event){
+					console.log("received data: " + event.data);
+				};
+			};
 
-            // the event handler for Internet Connectivity Establishment Candidata
-            pc1.onicecandidate = function(event){
-                pc2.addIceCandidate(new RTCIceCandidate(event.candidate)).then(function(){console.log("add ice candidate to pc2")});
-            };
-
-            // the event handler for Internet Connectivity Establishment Candidata
-            pc2.onicecandidate = function(event){
-                pc1.addIceCandidate(new RTCIceCandidate(event.candidate)).then(function(){console.log("add ice candidate to pc1")});
-            };
-
-            //
-            pc1.oniceconnectionstatechange = function(event){
-                if (pc1.iceConnectionState === 'connected' || pc1.iceConnectionState === 'completed'){
-
-                }
-            };
-
-            pc2.oniceconnectionstatechange = function(event){
-                if (pc2.iceConnectionState === 'connected' || pc2.iceConnectionState === 'completed'){
-
-                }
-            };
+			// build connection
+			pc1.onicecandidate = function(event){
+				if (event.candidate){
+					console.log("ice candidate");
+					pc2.addIceCandidate(event.candidate);
+				}
+			};
+			
+			pc2.onicecandidate = function(event){
+				if (event.candidate){
+					pc1.addIceCandidate(event.candidate);
+				}
+			};
+			
+			pc1.createOffer().then(function(desc){
+				console.log("===Offer Desc===");
+				console.log(desc);
+				pc1.setLocalDescription(desc);
+				
+				// Send the SDP descroptor to pc2
+				pc2.setRemoteDescription(desc);
+				pc2.createAnswer().then(function(desc){
+					console.log("===Answer Desc===");
+					console.log(desc);
+					
+					pc2.setLocalDescription(desc);
+					// Send the SDP descriptor to pc1
+					pc1.setRemoteDescription(desc);
+				});
+			});
         </script>
     </body>
 </html>

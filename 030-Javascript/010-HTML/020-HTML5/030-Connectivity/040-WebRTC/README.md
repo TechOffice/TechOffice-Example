@@ -14,3 +14,10 @@ Connection between local and remote peer.
 
 ### RTCDataChannel
 Network channel for bidirectional peer-to-peer transfer.
+
+
+## Reference
+### SDP (Session Description Protocal)
+It is a standard describing a peer-to-peer connection.
+
+
