@@ -1,6 +1,6 @@
 package com.ittechoffice.example;
 
-import com.ittechoffice.example.control.FileExplorer;
+import com.ittechoffice.example.control.FxFileExplorer;
 
 import javafx.application.Application;
 import javafx.event.EventHandler;
@@ -19,11 +19,8 @@ public class Appl extends Application{
 	public void start(Stage primaryStage) throws Exception {
 		 VBox root = new VBox();
 		 Scene scene = new Scene(root, 500, 500, Color.WHITE);
-
-		 Label label = new Label("Hello World JavaFX");
-		 root.getChildren().add(label);
 		 
-		 final FileExplorer fileExplorer = new FileExplorer("D://");
+		 final FxFileExplorer fileExplorer = new FxFileExplorer("D://");
 		 root.getChildren().add(fileExplorer);
 		 scene.addEventHandler(KeyEvent.KEY_PRESSED, new EventHandler<KeyEvent>(){
 			public void handle(KeyEvent event) {
@@ -32,6 +29,9 @@ public class Appl extends Application{
 				}
 				if(event.getCode() == KeyCode.DOWN){
 					fileExplorer.nextFile();
+				}
+				if(event.getCode() == KeyCode.UP){
+					fileExplorer.previousFile();
 				}
 			}
 		 });

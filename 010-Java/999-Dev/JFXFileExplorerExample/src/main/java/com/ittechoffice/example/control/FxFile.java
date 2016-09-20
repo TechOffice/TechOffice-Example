@@ -16,16 +16,20 @@ public class FxFile extends Pane{
 	
 	private Label label;
 	private TextField textField;
-	private FileExplorer fileExplorer;
+	private FxFileExplorer fileExplorer;
 	
 	private Status status = Status.VIEW;
 	private boolean selected = false;
+	
+	public static String SELECTED_BLACKGROUND_COLOR = "LightSkyBlue";
+	public static String OVER_BLACKGROUND_COLOR = "LightCyan";
+	public static String TRANSPARENT_COLOR = "transparent";
 	
 	public enum Status {
 		VIEW, EDIT;
 	}
 	
-	public FxFile(File file, FileExplorer fileExplorer){
+	public FxFile(File file, FxFileExplorer fileExplorer){
 		this.name = file.getName();
 		this.path = file.getPath();
 		this.fileExplorer = fileExplorer;
@@ -42,7 +46,7 @@ public class FxFile extends Pane{
 		label.addEventHandler(MouseEvent.MOUSE_ENTERED, new EventHandler<MouseEvent>(){
 			public void handle(MouseEvent arg0) {
 				if (!selected){
-					label.setStyle("-fx-background-color: LightSkyBlue ");
+					label.setStyle("-fx-background-color: " + OVER_BLACKGROUND_COLOR);
 				}
 				
 			}
@@ -50,7 +54,7 @@ public class FxFile extends Pane{
 		label.addEventHandler(MouseEvent.MOUSE_EXITED, new EventHandler<MouseEvent>(){
 			public void handle(MouseEvent arg0) {
 				if (!selected){
-					label.setStyle("-fx-background-color: transparent");
+					label.setStyle("-fx-background-color: " + TRANSPARENT_COLOR);
 				}
 			}
 		});
@@ -74,7 +78,7 @@ public class FxFile extends Pane{
 	
 	public void select(){
 		selected = true;
-		label.setStyle("-fx-background-color: blue");
+		label.setStyle("-fx-background-color: " + SELECTED_BLACKGROUND_COLOR);
 	}
 	
 	public void unselect(){
@@ -82,7 +86,7 @@ public class FxFile extends Pane{
 		if (status.equals(Status.EDIT)){
 			rename();
 		}
-		label.setStyle("-fx-background-color: transparent");
+		label.setStyle("-fx-background-color: " + TRANSPARENT_COLOR);
 	}
 	
 	public void edit(){
@@ -95,8 +99,10 @@ public class FxFile extends Pane{
 		this.label.setVisible(true);
 		this.textField.setVisible(false);
 		String newFileName = textField.getText();
-		this.name = newFileName;
-		this.label.setText(newFileName);
+		if (!newFileName.equals("")){
+			this.name = newFileName;
+			this.label.setText(newFileName);	
+		}
 	}
 	
 }
