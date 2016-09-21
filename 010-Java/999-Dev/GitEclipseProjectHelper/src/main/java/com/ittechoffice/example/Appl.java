@@ -5,6 +5,8 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.Properties;
 
+import com.ittechoffice.example.javaproj.MavenProjectManager;
+
 public class Appl {
 	
 	public static final String CONFIG_FOLDER_NAME = ".ittechoffice";
@@ -33,7 +35,7 @@ public class Appl {
 	
 	public static void main(String[] args) throws IOException{
 		String exampleHome = Appl.properties.getProperty("example_home");
-		MavenProjectHelper helper = new MavenProjectHelper(exampleHome);
+		MavenProjectManager helper = new MavenProjectManager(exampleHome);
 		helper.findMavenProject();
 		helper.completedMissingFolder();
 	}
