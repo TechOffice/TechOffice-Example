@@ -26,3 +26,12 @@ public class Appl extends Application{
 	
 ```
 
+The provided stage is the primary stage which is primary container of JavaFx Application.
+
+Scene is a graph (Controls) container. A scene should be instantiated to contain JavaFx controls. The below is an sample code showing stage contains scene and scene contain vbox (control).
+
+```
+VBox root = new VBox();
+Scene scene = new Scene(root, 500, 500, Color.WHITE);
+stage.setScene(scene);
+```

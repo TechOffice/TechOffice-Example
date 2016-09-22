@@ -1,16 +1,18 @@
-package com.ittechoffice.example;
+package com.ittechoffice.example.fx;
 
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.Properties;
 
-import com.ittechoffice.example.javaproj.MavenProjectManager;
+import com.ittechoffice.example.mvn.MavenProjectManager;
 
 public class Appl {
 	
 	public static final String CONFIG_FOLDER_NAME = ".ittechoffice";
 	public static final String APP_PROPERTIES_FILE = "application.properties";
+	public static final String EXAMPLE_HOME = "example_home";
+	
 	public static Properties properties  = null;
 	
 	static {
@@ -34,9 +36,9 @@ public class Appl {
 	}
 	
 	public static void main(String[] args) throws IOException{
-		String exampleHome = Appl.properties.getProperty("example_home");
-		MavenProjectManager helper = new MavenProjectManager(exampleHome);
-		helper.findMavenProject();
-		helper.completedMissingFolder();
+		String exampleHome = Appl.properties.getProperty(Appl.EXAMPLE_HOME);
+		MavenProjectManager mavenProjectManager = new MavenProjectManager(exampleHome);
+		mavenProjectManager.findMavenProject();
+		mavenProjectManager.completedMissingFolder();
 	}
 }

@@ -1,4 +1,4 @@
-package com.ittechoffice.example.javaproj;
+package com.ittechoffice.example.mvn;
 
 import java.io.File;
 import java.io.IOException;
@@ -9,12 +9,12 @@ public class MavenProjectManager {
 	
 	private String path;
 	private List<File> mvnProjList;
-	private List<File> mvnProjListMissingFolder;
+	private List<File> invalidMvnProjList;
 	
 	public MavenProjectManager(String path){
 		this.path = path;
 		this.mvnProjList = new ArrayList<File>();
-		this.mvnProjListMissingFolder = new ArrayList<File>();
+		this.invalidMvnProjList = new ArrayList<File>();
 	}
 	
 	public void findMavenProject(File root){
@@ -25,7 +25,7 @@ public class MavenProjectManager {
 				if (MavenProjectHelper.isMavenProject(file)){
 					mvnProjList.add(file);
 					if (MavenProjectHelper.isMissingGitKeep(file)){
-						mvnProjListMissingFolder.add(file);
+						invalidMvnProjList.add(file);
 					}
 				}else{
 					findMavenProject(file);
@@ -35,7 +35,7 @@ public class MavenProjectManager {
 	}
 	
 	public void completedMissingFolder() throws IOException{
-		for (File file: mvnProjListMissingFolder){
+		for (File file: invalidMvnProjList){
 			File mainResources = new File(file.getPath() + "/src/main/resources/.gitkeep");
 			File mainFolder = new File(file.getPath() + "/src/main");
 			File mainResourcesFolder = new File(file.getPath() + "/src/main/resources");
@@ -81,15 +81,26 @@ public class MavenProjectManager {
 				testResources.createNewFile();
 			}
 		}
+		findMavenProject();
+	}
+	
+	public int getNumInvalidMvnProj(){
+		return invalidMvnProjList.size();
+	}
+	
+	public int getNumMvnProj(){
+		return mvnProjList.size();
 	}
 	
 	public List<File> findMavenProject(){
 		System.out.println("Finding Maven Project in " + path);
 		this.mvnProjList = new ArrayList<File>();
-		this.mvnProjListMissingFolder = new ArrayList<File>();
+		this.invalidMvnProjList = new ArrayList<File>();
 		File root = new File(path);
 		findMavenProject(root);
 		System.out.println("Found " + mvnProjList.size() + " Maven Projects");
 		return mvnProjList;
 	}
+	
+	
 }

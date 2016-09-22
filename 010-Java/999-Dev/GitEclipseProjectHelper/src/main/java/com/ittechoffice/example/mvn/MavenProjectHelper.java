@@ -1,4 +1,4 @@
-package com.ittechoffice.example.javaproj;
+package com.ittechoffice.example.mvn;
 
 import java.io.File;
 
