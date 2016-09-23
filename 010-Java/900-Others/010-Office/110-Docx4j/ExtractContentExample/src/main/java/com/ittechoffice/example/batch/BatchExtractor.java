@@ -45,6 +45,7 @@ public class BatchExtractor {
 		}
 	}
 	
+	
 	public static void main(String[] args) throws Exception{
 		String home = Paths.get(BatchExtractor.class.getClassLoader().getResource(".").toURI()).getParent().getParent().toString();
 		String outputPath = home + "\\output";
