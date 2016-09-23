@@ -17,6 +17,7 @@ public class FxAppl extends Application{
         FXMLLoader loader = new FXMLLoader();
         InputStream applFxml = FxAppl.class.getClassLoader().getResourceAsStream("MavenProjectManager.fxml");
         VBox root = (VBox) loader.load(applFxml);
+        
         Scene scene = new Scene(root, 500, 500, Color.WHITE);
         primaryStage.setScene(scene);
         primaryStage.setTitle("FXML Controller Example");
