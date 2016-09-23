@@ -1,5 +1,8 @@
 package com.ittechoffice.example.mvn.model;
 
+import javax.xml.bind.annotation.XmlRootElement;
+
+@XmlRootElement
 public class Pom {
 	private String modelVersion;
 	private String groupId;
