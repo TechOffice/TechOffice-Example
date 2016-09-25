@@ -20,13 +20,14 @@ public class Appl {
 	static {
 		try {
 			String homePath = System.getProperty("user.home");
-			String configFolderPath = homePath + "\\" + CONFIG_FOLDER_NAME;
-			File propertyFile = new File(configFolderPath, APP_PROPERTIES_FILE);
+			System.out.println(homePath);
+			String configFolderPath = homePath + "/" + CONFIG_FOLDER_NAME;
 			File configFolder = new File(configFolderPath);
+			File propertyFile = new File(configFolderPath, APP_PROPERTIES_FILE);
 			if (!configFolder.exists()){
 				configFolder.mkdirs();
+				propertyFile.createNewFile();
 			}
-			propertyFile.createNewFile();
 			FileInputStream inputStream = new FileInputStream(propertyFile);
 			properties = new Properties();
 			properties.load(inputStream);
@@ -37,8 +38,11 @@ public class Appl {
 		}
 	}
 	
-	public static void main(String[] args) throws IOException{
+	public static void main(String[] args) throws Exception{
 		String exampleHome = Appl.properties.getProperty(Appl.EXAMPLE_HOME);
+		if (exampleHome == null){
+			throw new Exception("Cannot Find Example Project Home");
+		}
 		MavenProjectManager mavenProjectManager = new MavenProjectManager(exampleHome);
 		mavenProjectManager.findMavenProject();
 		mavenProjectManager.completedMissingFolder();

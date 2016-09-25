@@ -9,8 +9,13 @@ import com.ittechoffice.example.mvn.MavenProjectManager;
 
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.geometry.Insets;
+import javafx.scene.control.ButtonBar.ButtonData;
+import javafx.scene.control.ButtonType;
+import javafx.scene.control.Dialog;
 import javafx.scene.control.Label;
-import javafx.scene.control.TextArea;
+import javafx.scene.control.TextField;
+import javafx.scene.layout.GridPane;
 
 public class MavenProjectManagerController implements Initializable {
 	
@@ -27,14 +32,17 @@ public class MavenProjectManagerController implements Initializable {
 	
 	public void initialize(URL fxmlFileLocation, ResourceBundle resources){
 		String exampleHome = Appl.properties.getProperty(Appl.EXAMPLE_HOME);
+		if (exampleHome != null){
+			// Init MavenProjectManager  
+			mavenProjectManager = new MavenProjectManager(exampleHome);
+			mavenProjectManager.findMavenProject();
+			int numMvnProj = mavenProjectManager.getNumMvnProj();
+			numMvnProjLabel.setText(Integer.toString(numMvnProj));	
+			int numInvalidMvnProj = mavenProjectManager.getNumInvalidMvnProj();
+			numInvalidMvnProjLabel.setText(Integer.toString(numInvalidMvnProj));
+		}else{
 
-		// Init MavenProjectManager  
-		mavenProjectManager = new MavenProjectManager(exampleHome);
-		mavenProjectManager.findMavenProject();
-		int numMvnProj = mavenProjectManager.getNumMvnProj();
-		numMvnProjLabel.setText(Integer.toString(numMvnProj));	
-		int numInvalidMvnProj = mavenProjectManager.getNumInvalidMvnProj();
-		numInvalidMvnProjLabel.setText(Integer.toString(numInvalidMvnProj));
+		}
 	}
 	
     @FXML
