@@ -10,4 +10,5 @@ public class MavenProjectContant {
 	public static final String TEST_JAVA_FOLDER = "/src/test/java";
 	public static final String TEST_JAVA_GITKEEP = "/src/test/java/.gitkeep" ;
 	public static final String TARGET_CLASSES = "/target/classes";
+	public static final String TARGET_TEST_CLASS = "/target/test-classes";
 }
