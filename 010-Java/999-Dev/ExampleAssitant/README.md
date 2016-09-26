@@ -7,3 +7,5 @@
 	* Maven Project contains pom.xml which has specifies the project name. Maven Project Name should be consistent with the project folder name.
 * Eclipse Project Support
 	* Eclipse Project contains .project file storing meta data of the project. It would specifies the project name. Eclipse Project Name should be consistent with the project folder name
+* READNE.md
+	* For each Maven Project, it would contain its own README.md file. The file should follow specified format.
