@@ -12,6 +12,7 @@ public class MavenProjectManager {
 	private String path;
 	private List<File> mavenProjectList;
 	private List<File> invalidMavenProjectList;
+	private List<File> dummyFileList;
 	private MavenProjectService mavenProjectService;
 	
 	public MavenProjectManager(String path){
@@ -45,5 +46,12 @@ public class MavenProjectManager {
 		this.mavenProjectService.getMavenProjectList(path);
 		this.mavenProjectService.getInvalidMavenProjectList(mavenProjectList);
 	}
+	
+	public List<File> getDummyFileList(){
+		dummyFileList = this.mavenProjectService.getDummyFileList(this.mavenProjectList);
+		return dummyFileList;
+	}
+	
+	
 	
 }

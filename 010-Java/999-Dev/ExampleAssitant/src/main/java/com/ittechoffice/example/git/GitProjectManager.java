@@ -4,7 +4,6 @@ import java.io.File;
 
 import org.eclipse.jgit.api.Git;
 import org.eclipse.jgit.api.errors.GitAPIException;
-import org.eclipse.jgit.dircache.DirCache;
 import org.eclipse.jgit.transport.CredentialsProvider;
 import org.eclipse.jgit.transport.UsernamePasswordCredentialsProvider;
 
@@ -21,12 +20,7 @@ public class GitProjectManager {
 
         CredentialsProvider cp = new UsernamePasswordCredentialsProvider(gitUser, gitPassword);
 		this.path = path;
-        Git git = Git.init()
-                .setDirectory(new File(Path))
-                .call();
-        git.add().addFilepattern(".").call();
-        git.commit().setMessage("Updated by GitAssistant4e").call();
-        git.push().setCredentialsProvider(cp).call();
+        git = Git.init().setDirectory(new File(Path)).call();
 	}
 	
 	public static void main(String[] args) throws GitAPIException{

@@ -5,6 +5,8 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.ittechoffice.example.mvn.constant.MavenProjectContant;
+
 public class MavenProjectService {
 	
 	private List<File> getMavenProjectList(File root){
@@ -44,7 +46,7 @@ public class MavenProjectService {
 	
 	public void correctInvalidMavenProject(List<File> invalidMvnProjList) throws IOException{
 		for (File file: invalidMvnProjList){
-			File mainResources = new File(file.getPath() + "/src/main/resources/.gitkeep");
+			File mainResources = new File(file.getPath() + MavenProjectContant.MAIN_RESOURCES_GITKEEP);
 			File mainFolder = new File(file.getPath() + "/src/main");
 			File mainResourcesFolder = new File(file.getPath() + "/src/main/resources");
 
@@ -90,5 +92,14 @@ public class MavenProjectService {
 			}
 		}
 	}
-
+	
+	public List<File> getDummyFileList(List<File> mavenProjectList){
+		List<File> dummyFileList = new ArrayList<File>();
+		for(File file: mavenProjectList){
+			if(MavenProjectHelper.isTargetClassExist(file)){
+				dummyFileList.add(new File(file.getPath(), MavenProjectContant.TARGET_CLASSES));
+			}
+		}
+		return dummyFileList;
+	}
 }
