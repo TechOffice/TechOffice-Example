@@ -44,7 +44,7 @@ public class Appl {
 			throw new Exception("Cannot Find Example Project Home");
 		}
 		MavenProjectManager mavenProjectManager = new MavenProjectManager(exampleHome);
-		mavenProjectManager.getMavenProjectList();
+		mavenProjectManager.updateMavenProjectList();
 		mavenProjectManager.correctInvalidMavenProject();
 	}
 }

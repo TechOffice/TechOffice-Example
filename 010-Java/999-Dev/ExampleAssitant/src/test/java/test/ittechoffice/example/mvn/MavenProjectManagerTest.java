@@ -14,7 +14,7 @@ public class MavenProjectManagerTest {
 	public void getDummyFileListTest(){
 		String exampleHome = Appl.properties.getProperty(Appl.EXAMPLE_HOME);
 		MavenProjectManager mavenProjectManager = new MavenProjectManager(exampleHome);
-		mavenProjectManager.getMavenProjectList();
+		mavenProjectManager.updateMavenProjectList();
 		List<File> dummyFileList = mavenProjectManager.getDummyFileList();
 		for(File dummyFile: dummyFileList){
 			System.out.println(dummyFile.getPath());

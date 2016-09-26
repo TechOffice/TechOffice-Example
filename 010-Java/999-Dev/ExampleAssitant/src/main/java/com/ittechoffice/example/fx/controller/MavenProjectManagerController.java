@@ -35,10 +35,9 @@ public class MavenProjectManagerController implements Initializable {
 		if (exampleHome != null){
 			// Init MavenProjectManager  
 			mavenProjectManager = new MavenProjectManager(exampleHome);
-			mavenProjectManager.getMavenProjectList();
 			int numMvnProj = mavenProjectManager.getNumMvnProj();
-			numMvnProjLabel.setText(Integer.toString(numMvnProj));	
 			int numInvalidMvnProj = mavenProjectManager.getNumInvalidMvnProj();
+			numMvnProjLabel.setText(Integer.toString(numMvnProj));
 			numInvalidMvnProjLabel.setText(Integer.toString(numInvalidMvnProj));
 		}else{
 
