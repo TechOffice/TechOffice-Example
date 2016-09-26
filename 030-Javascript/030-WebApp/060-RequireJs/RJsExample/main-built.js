@@ -1,0 +1,1 @@
+define("one",[],function(){return one=1,one}),define("two",[],function(){return three=2,three}),define("three",[],function(){return three=3,three}),require(["one","two","three"],function(e,n,o){console.log(e),console.log(n),console.log(o)}),define("main",function(){});
