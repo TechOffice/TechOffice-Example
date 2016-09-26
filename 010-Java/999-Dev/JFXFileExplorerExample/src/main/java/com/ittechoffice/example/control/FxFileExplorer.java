@@ -6,7 +6,12 @@ import java.util.List;
 
 import javafx.scene.layout.VBox;
 
-
+/**
+ * File Explorer Control
+ * 
+ * @author Ben_c
+ *
+ */
 public class FxFileExplorer extends VBox {
 	
 	private String path;

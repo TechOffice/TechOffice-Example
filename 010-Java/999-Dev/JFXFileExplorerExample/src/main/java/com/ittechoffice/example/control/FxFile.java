@@ -10,6 +10,12 @@ import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 
+/**
+ * File Control 
+ * 
+ * @author Ben_c
+ *
+ */
 public class FxFile extends Pane{
 	private String name;
 	private String path;
@@ -103,6 +109,10 @@ public class FxFile extends Pane{
 			this.name = newFileName;
 			this.label.setText(newFileName);	
 		}
+	}
+	
+	public String getPath(){
+		return path;
 	}
 	
 }
