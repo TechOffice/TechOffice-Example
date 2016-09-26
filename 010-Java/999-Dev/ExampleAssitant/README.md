@@ -1,1 +1,4 @@
-# Git Assistance For Ittechoffice Example Project
+# ITTechoffice Example Assistant Project
+
+## Functionality
+* Maven Project Support
