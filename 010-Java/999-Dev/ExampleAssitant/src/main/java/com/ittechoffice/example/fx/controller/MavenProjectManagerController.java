@@ -35,7 +35,7 @@ public class MavenProjectManagerController implements Initializable {
 		if (exampleHome != null){
 			// Init MavenProjectManager  
 			mavenProjectManager = new MavenProjectManager(exampleHome);
-			mavenProjectManager.findMavenProject();
+			mavenProjectManager.getMavenProjectList();
 			int numMvnProj = mavenProjectManager.getNumMvnProj();
 			numMvnProjLabel.setText(Integer.toString(numMvnProj));	
 			int numInvalidMvnProj = mavenProjectManager.getNumInvalidMvnProj();
@@ -48,7 +48,7 @@ public class MavenProjectManagerController implements Initializable {
     @FXML
     private void validMvnProj(){
     	try {
-			mavenProjectManager.completedMissingFolder();
+			mavenProjectManager.correctInvalidMavenProject();
 			int numMvnProj = mavenProjectManager.getNumMvnProj();
 			numMvnProjLabel.setText(Integer.toString(numMvnProj));	
 			int numInvalidMvnProj = mavenProjectManager.getNumInvalidMvnProj();
