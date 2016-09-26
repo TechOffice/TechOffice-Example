@@ -23,7 +23,6 @@ public class MavenProjectManager {
 		this.invalidMavenProjectList = new ArrayList<File>();
 		
 		this.updateMavenProjectList();
-		this.updateInvalidMavenProjectList();
 	}
 	
 	public int getNumInvalidMvnProj(){
@@ -32,6 +31,14 @@ public class MavenProjectManager {
 	
 	public int getNumMvnProj(){
 		return mavenProjectList.size();
+	}
+	
+	public List<File> getMavenProjectList(){
+		return this.mavenProjectList;
+	}
+	
+	public List<File> getInvalidMavenProjectList(){
+		return this.invalidMavenProjectList;
 	}
 	
 	public List<File> updateMavenProjectList(){

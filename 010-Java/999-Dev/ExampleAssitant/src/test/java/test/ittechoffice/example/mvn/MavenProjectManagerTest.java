@@ -20,4 +20,14 @@ public class MavenProjectManagerTest {
 			System.out.println(dummyFile.getPath());
 		}
 	}
+	
+	@Test
+	public void getMavenProjectListTest(){
+		String exampleHome = Appl.properties.getProperty(Appl.EXAMPLE_HOME);
+		MavenProjectManager mavenProjectManager = new MavenProjectManager(exampleHome);
+		List<File> mavenProjectList = mavenProjectManager.getMavenProjectList();
+		for(File mavenProject: mavenProjectList){
+			System.out.println(mavenProject.getPath());
+		}
+	}
 }
