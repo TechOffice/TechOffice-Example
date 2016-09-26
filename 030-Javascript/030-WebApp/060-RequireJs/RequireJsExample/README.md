@@ -1,3 +1,11 @@
+# RequireJs Example
+
+## RequireJs
+It is a library for aychronous module definition.
+
+## Example
+main.js
+```
 requirejs.config({
     baseUrl: 'lib',
     paths: {
@@ -16,3 +24,22 @@ define(function(require){
     message = message + "module2.name : " + module2.name ;
     messageDiv.innerHTML = message;
 });
+```
+
+app/module1.js
+```
+define(function(require){
+    console.log("calling define module1");
+    var main = {name: "module1"};
+    return main;
+});
+```
+
+app/module2.js
+```
+define(function(require){
+    console.log("calling define module2");
+    var main = {name: "module2"};
+    return main;
+});
+```
