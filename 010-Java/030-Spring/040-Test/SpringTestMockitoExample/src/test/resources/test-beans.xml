@@ -5,6 +5,8 @@
         http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
         http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
 
-	<context:component-scan base-package="com.ittechoffice.example" />
+	<bean id="simpleSpringService" class="org.mockito.Mockito" factory-method="mock">
+		<constructor-arg value="com.ittechoffice.example.SimpleSpringService" />
+	</bean>
 
 </beans>

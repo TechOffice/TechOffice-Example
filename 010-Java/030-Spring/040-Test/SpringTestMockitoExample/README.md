@@ -1,4 +1,4 @@
-# Spring Test Example
+# Spring Test Mockito Example
 
 ## Prerequisite
 * Maven 3
@@ -7,25 +7,20 @@
 ## Dependencies
 * Spring 4.3
 * JUnit 4.12
+* Mockito 2.0.111-beta
 
 ## Example
-This is a an example demonstrating Unit Testing of Spring Application. The Unit test can be done in Spring Environment.
+This is a an example demonstrate that Spring Test integrate with Mockito to mock bean for testing. 
 
-### SimpleSpringServiceTest.java
-It is example of testing in Spring Test environment. It contain a separate configuration. Bean could automatically injected for testing.
 
-## Spring Test
-
+Declare bean using Mockito
 ```
-<dependency>
-	<groupId>org.springframework</groupId>
-	<artifactId>spring-test</artifactId>
-	<version>4.3.0.RELEASE</version>
-</dependency>
+<bean id="simpleSpringService" class="org.mockito.Mockito" factory-method="mock">
+	<constructor-arg value="com.ittechoffice.example.SimpleSpringService" />
+</bean>
 ```
 
-Spring provide a SpringJUnit4ClassRunner so that the spring application can be tested in standalone environment.
-
+Then the bean can be modified in Test Case
 ```
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration("/test-beans.xml")
@@ -36,10 +31,12 @@ public class SimpleSpringServiceTest {
 	
 	@Test
 	public void test(){
+		Mockito.when(simpleSpringService.test()).thenReturn("From Mockito");
+		
 		String result = simpleSpringService.test();
-		Assert.assertEquals(result, "Test");
+		System.out.println(simpleSpringService.test());
+		Assert.assertEquals(result, "From Mockito");
 	}
 }
-```
 
-The Spring can be configured separately in Spring Test Environment.
+```
