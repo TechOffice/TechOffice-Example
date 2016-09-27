@@ -13,7 +13,7 @@
 This is a an example demonstrate that Spring Test integrate with Mockito to mock bean for testing. 
 
 
-Declare bean using Mockito
+Declare bean using Mockito (e.g. beans.xml)
 ```
 <bean id="simpleSpringService" class="org.mockito.Mockito" factory-method="mock">
 	<constructor-arg value="com.ittechoffice.example.SimpleSpringService" />

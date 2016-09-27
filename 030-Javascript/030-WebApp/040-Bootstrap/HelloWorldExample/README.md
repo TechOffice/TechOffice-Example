@@ -1,10 +1,11 @@
 # Bootstrap Example
 
-## Bootstrap
-It is a front-end web framework. The great feature is the HTML-based and CSS-based design tempalte. A set of stylesheets and Re-useable components is provided for building web pages.
+## Bootstrap 
 
-## CDN
+## Example
+This is just a Hello World Example of Bootstrap. 
 
+This example use CDN to import Bootstrap library
 ```
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
@@ -13,4 +14,9 @@ It is a front-end web framework. The great feature is the HTML-based and CSS-bas
 
 <!-- Latest compiled and minified JavaScript -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+```
+
+This example show say hello to World but Bootstrap make it different from the general layout.
+```
+<h1>Hello, world!</h1>
 ```

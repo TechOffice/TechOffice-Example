@@ -43,3 +43,9 @@ Caused by: java.lang.IllegalStateException: The file is locked: nio:D:/Users/Ben
 	at org.h2.mvstore.FileStore.open(FileStore.java:172)
 	at org.h2.mvstore.MVStore.<init>(MVStore.java:342)
 	... 30 more
+09-26 15:08:02 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Table "TABLES" not found; SQL statement:
+select * from tables [42102-175]
+09-26 15:08:04 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Table "TABLES" not found; SQL statement:
+select * from tables [42102-175]
