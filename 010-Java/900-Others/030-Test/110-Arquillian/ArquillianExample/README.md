@@ -3,10 +3,13 @@
 ## Dependencies
 * junit 4.8.1
 * Aruqillian 1.0.3
-* Embedded Weld 1.0.0
+* Weld 1.0.0
 
 ## Arquillian
+Aquillian is an Integration Test Framework for J2EE. 
 
+## Weld
+Weld is a J2EE Context and Dependency Injection (CDI) Container. Many popular J2EE Container integrate with Weld such as JBoss, GlassFlish, Weblogic and Websphere. It could be used in J2SE and Tomcat to provide the capacity of CDI. 
 
 ## Example
 This Example test with J2EE Container Context Dependency Inject (CDI) capacity. The J2EE Container used for testing is Embedded Weld.
