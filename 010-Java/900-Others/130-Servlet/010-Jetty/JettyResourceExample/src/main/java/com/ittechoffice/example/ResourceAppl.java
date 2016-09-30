@@ -8,7 +8,7 @@ import org.eclipse.jetty.server.handler.ContextHandlerCollection;
 import org.eclipse.jetty.server.handler.ResourceHandler;
 import org.eclipse.jetty.util.resource.Resource;
 
-public class Appl {
+public class ResourceAppl {
 	public static void main(String[] args) throws Exception{
         Server server = new Server(8080);
         
@@ -17,8 +17,8 @@ public class Appl {
         ContextHandler context = new ContextHandler();
         context.setContextPath("/");
         
-        File dir0 = new File(Appl.class.getClassLoader().getResource("Testing.txt").getFile());
-        context.setBaseResource(Resource.newResource(dir0));
+        File file = new File(ResourceAppl.class.getClassLoader().getResource("Testing.txt").getFile());
+        context.setBaseResource(Resource.newResource(file));
         context.setHandler(resourceHandler);
         
         ContextHandlerCollection contexts = new ContextHandlerCollection();
