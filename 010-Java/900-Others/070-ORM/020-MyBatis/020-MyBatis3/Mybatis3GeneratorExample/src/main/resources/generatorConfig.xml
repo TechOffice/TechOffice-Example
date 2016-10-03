@@ -3,16 +3,14 @@
 
 <generatorConfiguration>
 
-	<classPathEntry location="<Full Path of H2 JDBC .jar file>" />
-
 	<context id="context1">
 		<!-- JDBC Connection -->
-		<jdbcConnection connectionURL="jdbc:h2:<Full Path of this Project>\test"
-			driverClass="org.h2.Driver" password="sa" userId="" />
+		<jdbcConnection connectionURL="jdbc:h2:./test"
+			driverClass="org.h2.Driver" password="" userId="sa" />
 
 		<!-- Model -->
 		<javaModelGenerator targetPackage="com.ittechoffice.example.model"
-			targetProject="Mybatis3GeneratorExample/src/main/java">
+			targetProject="src/main/java">
 
 			<property name="enableSubPackages" value="true" />
 			<property name="trimStrings" value="true" />
@@ -21,7 +19,7 @@
 
 		<!-- SQL Map -->
 		<sqlMapGenerator targetPackage="com.ittechoffice.example.xml"
-			targetProject="Mybatis3GeneratorExample/src/main/java">
+			targetProject="src/main/java">
 			
 			<property name="enableSubPackages" value="true" />
 			
@@ -29,7 +27,7 @@
 
 		<!-- DAO -->
 		<javaClientGenerator type="XMLMAPPER" targetPackage="com.ittechoffice.example.dao" 
-			targetProject="Mybatis3GeneratorExample/src/main/java">
+			targetProject="src/main/java">
 			
 			<property name="enableSubPackages" value="true" />
 			
