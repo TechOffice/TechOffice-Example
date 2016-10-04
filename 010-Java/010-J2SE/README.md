@@ -1,1 +1,2 @@
-# J2SE Special API Example
+# Java Standard Edition (J2SE)
+
