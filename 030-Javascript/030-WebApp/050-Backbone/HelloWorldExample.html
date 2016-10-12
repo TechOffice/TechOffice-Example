@@ -44,7 +44,7 @@ view = new View({ el: $("#view") });
 			student2 = new Student({name: "Testing 2", age: 22 });
 			studentCollection.add(student1);
 			studentCollection.add(student2);
-			Collection = Backbone.View.extend({
+			CollectionView = Backbone.View.extend({
 				initialize: function(){
 				  this.render();
 				},
@@ -60,7 +60,7 @@ view = new View({ el: $("#view") });
 					this.$el.html(table);
 				}
 			});	
-			collection = new Collection({ el: $("#collection") });
+			collectionView = new CollectionView({ el: $("#collection") });
 		</script>
 <pre>
 Student = Backbone.Model.extend({
