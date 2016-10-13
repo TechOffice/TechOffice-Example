@@ -1,4 +1,4 @@
-# PL/SQL Example
+# Procedural Language / Structured Query Language (PL/SQL) Example
 
 ## Example List
 * HelloWorldExample.sql
