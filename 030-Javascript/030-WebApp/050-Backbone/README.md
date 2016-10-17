@@ -15,3 +15,6 @@ npm run dev
 It give structure to web application by providing models, view and controller
 Backbone works with RESTful API.
 
+## Example List
+* HelloWorldExample.html - Demonstrate how Backbone use Model, Collection and View to render 
+* Student.html - Demonstrate how Backbone use Model, Collection and View to render with ajax
