@@ -8,7 +8,7 @@
 		<div id="studentDiv"></div>
         <script>
             Students = Backbone.Collection.extend({
-                url: '/Students.json',
+                url: 'Students.json',
                 parse: function(data) {
                     return data.data;
                 }

@@ -17,4 +17,9 @@ Backbone works with RESTful API.
 
 ## Example List
 * HelloWorldExample.html - Demonstrate how Backbone use Model, Collection and View to render 
-* Student.html - Demonstrate how Backbone use Model, Collection and View to render with ajax
+* Student.html - Demonstrate how Backbone use Model, Collection and View to render with ajax. 
+
+## Run Npm Project
+```
+node dev
+```
