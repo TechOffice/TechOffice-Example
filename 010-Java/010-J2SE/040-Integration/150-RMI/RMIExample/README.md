@@ -1,2 +1,0 @@
-# Remote Method Invokion Example
-
