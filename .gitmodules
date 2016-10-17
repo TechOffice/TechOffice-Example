@@ -1,0 +1,3 @@
+[submodule "techoffice-java"]
+	path = 010-Java
+	url = https://github.com/imben1109/techoffice-java.git
