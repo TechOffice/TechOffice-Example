@@ -1,5 +1,8 @@
 /*
 * This Example show how to use bulk collect from a cursor
+* 
+* The advantage of bulk collection is 
+* BULK COLLECT: SELECT statements that retrieve multiple rows with a single fetch, improving the speed of data retrieval
 */
 SET SERVEROUTPUT ON;
 
