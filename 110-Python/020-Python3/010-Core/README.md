@@ -1,8 +1,8 @@
 # Python 3.x Core Example
 
 ## Example List
-* HelloWorldExample.py
-* ConditionExample.py
-* LoopExample.py
-* ClassExample.py
+* HelloWorldExample.py - print statement
+* ConditionExample.py - if statement
+* LoopExample.py - for statement
+* ClassExample.py - class statement
 
