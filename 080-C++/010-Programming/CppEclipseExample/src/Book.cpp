@@ -7,12 +7,14 @@
 
 #include "Book.h"
 
-Book::Book() {
+#include <iostream>
 
+Book::Book() {
+	std::cout << "Book instance is being created" << std::endl;
 }
 
 Book::~Book() {
-	// TODO Auto-generated destructor stub
+	std::cout << "Book instance is being destroyed" << std::endl;
 }
 
 void Book::setName(std::string name){

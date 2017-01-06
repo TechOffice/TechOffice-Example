@@ -7,13 +7,15 @@
 
 #include "Student.h"
 
+#include <iostream>
+
 Student::Student(std::string name) {
 	this->name = name;
 	this->book.setName(name + "'s Book");
 }
 
 Student::~Student() {
-	// TODO Auto-generated destructor stub
+	std::cout << "Student instance is being destroyed" << std::endl;
 }
 
 std::string Student::getName() {

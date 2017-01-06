@@ -12,7 +12,6 @@
 
 #include "Book.h"
 
-
 class Student {
 private:
 	std::string name;
