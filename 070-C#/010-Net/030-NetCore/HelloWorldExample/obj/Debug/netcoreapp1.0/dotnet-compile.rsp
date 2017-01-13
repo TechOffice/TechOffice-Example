@@ -1,5 +1,5 @@
---temp-output:d:\Users\Ben_c\git_workspace\TechOffice-Example\070-C#\010-Net\030-NetCore\HelloWorldExample\obj\Debug\netcoreapp1.0\
---out:d:\Users\Ben_c\git_workspace\TechOffice-Example\070-C#\010-Net\030-NetCore\HelloWorldExample\bin\Debug\netcoreapp1.0\HelloWorldExample.dll
+--temp-output:D:\Users\Ben_c\git_workspace\TechOffice-Example\070-C#\010-Net\030-NetCore\HelloWorldExample\obj\Debug\netcoreapp1.0\
+--out:D:\Users\Ben_c\git_workspace\TechOffice-Example\070-C#\010-Net\030-NetCore\HelloWorldExample\bin\Debug\netcoreapp1.0\HelloWorldExample.dll
 --define:DEBUG
 --define:TRACE
 --define:NETCOREAPP1_0
@@ -87,4 +87,4 @@
 --reference:d:\Users\Ben_c\.nuget\packages\System.Threading.Timer\4.0.1\ref\netstandard1.2\System.Threading.Timer.dll
 --reference:d:\Users\Ben_c\.nuget\packages\System.Xml.ReaderWriter\4.0.11\ref\netstandard1.3\System.Xml.ReaderWriter.dll
 --reference:d:\Users\Ben_c\.nuget\packages\System.Xml.XDocument\4.0.11\ref\netstandard1.3\System.Xml.XDocument.dll
-d:\Users\Ben_c\git_workspace\TechOffice-Example\070-C#\010-Net\030-NetCore\HelloWorldExample\Program.cs
+D:\Users\Ben_c\git_workspace\TechOffice-Example\070-C#\010-Net\030-NetCore\HelloWorldExample\Program.cs
