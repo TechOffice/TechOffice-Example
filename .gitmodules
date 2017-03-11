@@ -1,6 +1,6 @@
 [submodule "techoffice-java"]
 	path = 010-Java
-	url = https://github.com/imben1109/techoffice-java.git
+	url = https://github.com/TechOffice/techoffice-java.git
 [submodule "techoffice-js"]
 	path = 030-Js
-	url = https://github.com/imben1109/techoffice-js.git
+	url = https://github.com/TechOffice/techoffice-js.git
